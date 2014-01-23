@@ -1,0 +1,197 @@
+/**
+ * Full-size submit class
+ */
+UUI.FULL_SUBMIT = CLASS({
+
+	preset : function() {'use strict';
+		return NODE;
+	},
+
+	init : function(cls, inner, self, params) {'use strict';
+		//OPTIONAL: params
+		//OPTIONAL: params.style
+		//OPTIONAL: params.value
+
+		var
+		// style
+		style = params === undefined ? undefined : params.style,
+
+		// value
+		value = params === undefined ? undefined : params.value,
+
+		// input
+		input,
+
+		// get dom.
+		getDom,
+
+		// append.
+		append,
+
+		// append to.
+		appendTo,
+
+		// prepend.
+		prepend,
+
+		// prepend to.
+		prependTo,
+
+		// after.
+		after,
+
+		// insert after.
+		insertAfter,
+
+		// before.
+		before,
+
+		// insert before.
+		insertBefore,
+
+		// remove.
+		remove,
+
+		// remove all childs.
+		removeAllChilds,
+
+		// get parent.
+		getParent,
+
+		// set parent.
+		setParent,
+
+		// get childs.
+		getChilds,
+
+		// add style.
+		addStyle,
+
+		// show.
+		show,
+
+		// hide.
+		hide,
+
+		// check is show.
+		checkIsShow;
+
+		input = INPUT({
+			type : 'submit',
+			style : {
+				border : 'none',
+				width : '100%',
+				padding : '10px 0',
+				cursor : 'pointer'
+			}
+		});
+
+		if (value !== undefined) {
+			input.setValue(value);
+		}
+
+		self.getDom = getDom = function() {
+			return input;
+		};
+
+		self.append = append = function(node) {
+			//REQUIRED: node
+
+			input.append(node);
+		};
+
+		self.appendTo = appendTo = function(node) {
+			//REQUIRED: node
+
+			node.append(input);
+
+			return self;
+		};
+
+		self.prepend = prepend = function(node) {
+			//REQUIRED: node
+
+			input.prepend(node);
+		};
+
+		self.prependTo = prependTo = function(node) {
+			//REQUIRED: node
+
+			node.prepend(input);
+
+			return self;
+		};
+
+		self.after = after = function(node) {
+			//REQUIRED: node
+
+			input.after(node);
+		};
+
+		self.insertAfter = insertAfter = function(node) {
+			//REQUIRED: node
+
+			node.after(input);
+
+			return self;
+		};
+
+		self.before = before = function(node) {
+			//REQUIRED: node
+
+			input.before(node);
+		};
+
+		self.insertBefore = insertBefore = function(node) {
+			//REQUIRED: node
+
+			node.before(input);
+
+			return self;
+		};
+
+		self.remove = remove = function() {
+			input.remove();
+		};
+
+		self.removeAllChilds = removeAllChilds = function() {
+			input.removeAllChilds();
+		};
+
+		self.getParent = getParent = function() {
+			return input.getParent();
+		};
+
+		self.setParent = setParent = function(parent) {
+			//REQUIRED: parent
+
+			input.setParent(parent);
+		};
+
+		self.getChilds = getChilds = function() {
+			return input.getChilds();
+		};
+
+		self.addStyle = addStyle = function(style) {
+			//REQUIRED: style
+
+			input.addStyle(style);
+		};
+
+		if (style !== undefined) {
+			addStyle(style);
+		}
+
+		self.show = show = function() {
+			input.show();
+		};
+
+		self.hide = hide = function() {
+			input.hide();
+		};
+
+		self.checkIsShow = checkIsShow = function() {
+			return input.checkIsShow();
+		};
+	}
+});
