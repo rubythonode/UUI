@@ -79,7 +79,12 @@ UUI.NOTICE = CLASS({
 		addContentStyle;
 
 		modal = UUI.MODAL({
-			wrapperStyle : wrapperStyle,
+			wrapperStyle : COMBINE_DATA({
+				origin : {
+					textAlign : 'center'
+				},
+				extend : wrapperStyle
+			}),
 			contentStyle : contentStyle,
 			isCannotClose : true,
 			childs : [msg]
