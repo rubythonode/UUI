@@ -110,7 +110,8 @@ UUI.BUTTON = CLASS({
 				textAlign : 'center',
 				paddingTop : 10,
 				paddingBottom : 10,
-				cursor : 'pointer'
+				cursor : 'pointer',
+				textDecoration : 'none'
 			},
 			href : href,
 			target : target

@@ -1,3 +1,8 @@
+1.2.2 ()
+- 링크 기본 색상을 #fff로 고정
+- LAYER 크기 배율 버그 해결
+- 안드로이드 2.x 버젼에서 overflow scroll 문제 해결
+
 1.2.1 (2014. 1. 24)
 - Android < 3 에서 overflow scroll 버그 해결 솔루션 제작
 - MODEL에서 create시 특정 ROOM으로 broadcast하는 기능 제작

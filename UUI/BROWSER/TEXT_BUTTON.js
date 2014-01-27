@@ -99,7 +99,8 @@ UUI.TEXT_BUTTON = CLASS({
 
 		a = A({
 			style : {
-				cursor : 'pointer'
+				cursor : 'pointer',
+				textDecoration : 'none'
 			},
 			href : href,
 			target : target,

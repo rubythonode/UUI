@@ -114,7 +114,8 @@ UUI.BUTTON_H = CLASS({
 			style : {
 				display : 'block',
 				padding : 7,
-				cursor : 'pointer'
+				cursor : 'pointer',
+				textDecoration : 'none'
 			},
 			href : href,
 			target : target,
