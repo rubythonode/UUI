@@ -153,7 +153,7 @@ UUI.FULL_UPLOAD_FORM = CLASS({
 				},
 				childs : [ input = INPUT({
 					type : 'file',
-					multiple : true,
+					isMultiple : true,
 					style : {
 						width : '100%',
 						height : '100%',

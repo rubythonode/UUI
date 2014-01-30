@@ -113,7 +113,7 @@ UUI.BUTTON_H = CLASS({
 		a = A({
 			style : {
 				display : 'block',
-				padding : 7,
+				padding : '9px 12px',
 				cursor : 'pointer',
 				textDecoration : 'none'
 			},
@@ -137,7 +137,7 @@ UUI.BUTTON_H = CLASS({
 
 			if (img.getStyle('margin') === undefined && img.getStyle('marginRight') === undefined) {
 				img.addStyle({
-					marginRight : 5
+					marginRight : 7
 				});
 			}
 
