@@ -143,7 +143,7 @@ UUI.FULL_INPUT = CLASS({
 		wrapper = DIV({
 			style : {
 				padding : 5,
-				background : '#FFF'
+				backgroundColor : '#FFF'
 			},
 			childs : [DIV({
 				style : {
@@ -153,7 +153,7 @@ UUI.FULL_INPUT = CLASS({
 				childs : [ input = INPUT({
 					style : {
 						width : '100%',
-						background : '#FFF',
+						backgroundColor : 'transparent',
 						border : 'none'
 					},
 					name : name,

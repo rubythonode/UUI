@@ -11,6 +11,7 @@ UUI.BUTTON = CLASS({
 		//REQUIRED: params
 		//OPTIONAL: params.img
 		//OPTIONAL: params.msg
+		//OPTIONAL: params.spacing
 		//OPTIONAL: params.href
 		//OPTIONAL: params.target
 		//OPTIONAL: params.style
@@ -22,6 +23,9 @@ UUI.BUTTON = CLASS({
 
 		// msg
 		msg = params.msg,
+
+		// spacing
+		spacing = params.spacing === undefined ? 0 : params.spacing,
 
 		// href
 		href = params.href,
@@ -108,8 +112,6 @@ UUI.BUTTON = CLASS({
 			style : {
 				display : 'block',
 				textAlign : 'center',
-				paddingTop : 10,
-				paddingBottom : 10,
 				cursor : 'pointer',
 				textDecoration : 'none'
 			},
@@ -127,9 +129,6 @@ UUI.BUTTON = CLASS({
 
 		if (img !== undefined) {
 			a.prepend(DIV({
-				style : {
-					marginBottom : msg !== undefined ? 7 : 0
-				},
 				childs : [img]
 			}));
 		}

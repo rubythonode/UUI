@@ -11,6 +11,7 @@ UUI.BUTTON_H = CLASS({
 		//REQUIRED: params
 		//OPTIONAL: params.img
 		//OPTIONAL: params.msg
+		//OPTIONAL: params.spacing
 		//OPTIONAL: params.href
 		//OPTIONAL: params.target
 		//OPTIONAL: params.style
@@ -22,6 +23,9 @@ UUI.BUTTON_H = CLASS({
 
 		// msg
 		msg = params.msg,
+
+		// spacing
+		spacing = params.spacing === undefined ? 0 : params.spacing,
 
 		// href
 		href = params.href,
@@ -113,7 +117,6 @@ UUI.BUTTON_H = CLASS({
 		a = A({
 			style : {
 				display : 'block',
-				padding : '9px 12px',
 				cursor : 'pointer',
 				textDecoration : 'none'
 			},
@@ -137,7 +140,7 @@ UUI.BUTTON_H = CLASS({
 
 			if (img.getStyle('margin') === undefined && img.getStyle('marginRight') === undefined) {
 				img.addStyle({
-					marginRight : 7
+					marginRight : spacing
 				});
 			}
 

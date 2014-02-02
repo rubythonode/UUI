@@ -125,13 +125,15 @@ UUI.FULL_TEXTAREA = CLASS({
 		wrapper = DIV({
 			style : {
 				padding : 5,
-				background : '#FFF',
-				position : 'relative'
+				backgroundColor : '#FFF',
+				position : 'relative',
+				height : 100
 			},
 			childs : [ textarea = TEXTAREA({
 				style : {
 					width : '100%',
-					background : '#FFF',
+					height : '100%',
+					backgroundColor : 'transparent',
 					border : 'none'
 				},
 				name : name,

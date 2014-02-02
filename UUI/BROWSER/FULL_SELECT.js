@@ -122,13 +122,13 @@ UUI.FULL_SELECT = CLASS({
 		wrapper = DIV({
 			style : {
 				padding : 5,
-				background : '#FFF',
+				backgroundColor : '#FFF',
 				position : 'relative'
 			},
 			childs : [ _select = SELECT({
 				style : {
 					width : '100%',
-					background : '#FFF',
+					backgroundColor : 'transparent',
 					border : 'none'
 				},
 				name : name
