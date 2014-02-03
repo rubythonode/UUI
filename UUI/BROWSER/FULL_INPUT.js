@@ -40,12 +40,21 @@ UUI.FULL_INPUT = CLASS({
 		onChange = params.onChange,
 
 		// placeholder style
-		placeholderStyle = {
-			position : 'absolute',
-			left : value === undefined ? 0 : value.length,
-			color : '#999',
-			cursor : 'text'
-		},
+		placeholderStyle = COMBINE_DATA({
+			origin : {
+				position : 'absolute',
+				top : 0,
+				color : '#999',
+				cursor : 'text'
+			},
+			extend : inputStyle !== undefined && inputStyle.textAlign === 'center' ? {
+				left : 0,
+				width : '100%',
+				textAlign : 'center'
+			} : {
+				left : value === undefined ? 0 : value.length,
+			}
+		}),
 
 		// wrapper
 		wrapper,
@@ -185,22 +194,41 @@ UUI.FULL_INPUT = CLASS({
 			// font size
 			fontSize = fontSizeStr === undefined ? 12 : parseInt(fontSizeStr, 10);
 
-			REPEAT(value.length, function(i) {
+			if (input.getStyle('textAlign') === 'center') {
 
-				var
-				// c
-				c = value.charAt(i);
+				placeholderButton.addStyle({
+					left : 0,
+					width : '100%',
+					textAlign : 'center'
+				});
 
-				if (escape(c).length > 4) {
-					count += 1.8;
+				if (value === '') {
+					placeholderButton.show();
 				} else {
-					count += 1;
+					placeholderButton.hide();
 				}
-			});
 
-			placeholderButton.addStyle({
-				left : count * fontSize / 1.6 + (count > 0 ? 5 : 0)
-			});
+			} else {
+
+				REPEAT(value.length, function(i) {
+
+					var
+					// c
+					c = value.charAt(i);
+
+					if (escape(c).length > 4) {
+						count += 1.8;
+					} else {
+						count += 1;
+					}
+				});
+
+				placeholderButton.addStyle({
+					left : count * fontSize / 1.6 + (count > 0 ? 5 : 0),
+					width : 'auto',
+					textAlign : 'left'
+				});
+			}
 		});
 
 		EVENT({
