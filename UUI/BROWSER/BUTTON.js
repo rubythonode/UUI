@@ -129,6 +129,9 @@ UUI.BUTTON = CLASS({
 
 		if (img !== undefined) {
 			a.prepend(DIV({
+				style : {
+					marginBottom : msg !== undefined ? spacing : 0
+				},
 				childs : [img]
 			}));
 		}

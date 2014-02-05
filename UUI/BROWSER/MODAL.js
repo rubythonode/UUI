@@ -15,6 +15,7 @@ UUI.MODAL = CLASS({
 		//OPTIONAL: params.xStyle
 		//OPTIONAL: params.xImg
 		//OPTIONAL: params.isCannotClose
+		//OPTIONAL: params.onClose
 
 		var
 		// childs
@@ -34,6 +35,9 @@ UUI.MODAL = CLASS({
 
 		// is cannot close
 		isCannotClose = params === undefined ? undefined : params.isCannotClose,
+
+		// on close
+		onClose = params === undefined ? undefined : params.onClose,
 
 		// wrapper
 		wrapper,
@@ -120,7 +124,12 @@ UUI.MODAL = CLASS({
 				}),
 				img : xImg,
 				onTap : function() {
+
 					remove();
+
+					if (onClose !== undefined) {
+						onClose();
+					}
 				}
 			})]
 		});
@@ -152,8 +161,14 @@ UUI.MODAL = CLASS({
 		escEvent = EVENT({
 			name : 'keydown'
 		}, function(e) {
-			if (e.getKeyCode() === 27) {
+
+			if (e.getKeyCode() === 27 && isCannotClose !== true) {
+
 				remove();
+
+				if (onClose !== undefined) {
+					onClose();
+				}
 			}
 		});
 
