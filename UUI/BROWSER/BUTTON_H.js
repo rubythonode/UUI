@@ -16,6 +16,8 @@ UUI.BUTTON_H = CLASS({
 		//OPTIONAL: params.target
 		//OPTIONAL: params.style
 		//OPTIONAL: params.onTap
+		//OPTIONAL: params.onMouseover
+		//OPTIONAL: params.onMouseout
 
 		var
 		// img
@@ -38,6 +40,12 @@ UUI.BUTTON_H = CLASS({
 
 		// on tap
 		onTap = params.onTap,
+
+		// on mouseover
+		onMouseover = params.onMouseover,
+
+		// on mouseout
+		onMouseout = params.onMouseout,
 
 		// a
 		a,
@@ -164,6 +172,24 @@ UUI.BUTTON_H = CLASS({
 				name : 'tap'
 			}, function(e) {
 				onTap(e, self);
+			});
+		}
+
+		if (onMouseover !== undefined) {
+			EVENT({
+				node : a,
+				name : 'mouseover'
+			}, function(e) {
+				onMouseover(e, self);
+			});
+		}
+
+		if (onMouseout !== undefined) {
+			EVENT({
+				node : a,
+				name : 'mouseout'
+			}, function(e) {
+				onMouseout(e, self);
 			});
 		}
 
