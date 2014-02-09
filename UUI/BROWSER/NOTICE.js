@@ -3,10 +3,6 @@
  */
 UUI.NOTICE = CLASS({
 
-	preset : function() {'use strict';
-		return NODE;
-	},
-
 	init : function(cls, inner, self, params) {'use strict';
 		//REQUIRED: params
 		//OPTIONAL: params.wrapperStyle
@@ -30,44 +26,23 @@ UUI.NOTICE = CLASS({
 		// modal
 		modal,
 
-		// get dom.
-		getDom,
-
 		// append.
 		append,
-
-		// append to.
-		appendTo,
 
 		// prepend.
 		prepend,
 
-		// prepend to.
-		prependTo,
-
 		// after.
 		after,
 
-		// insert after.
-		insertAfter,
-
 		// before.
 		before,
-
-		// insert before.
-		insertBefore,
 
 		// remove.
 		remove,
 
 		// remove all childs.
 		removeAllChilds,
-
-		// get parent.
-		getParent,
-
-		// set parent.
-		setParent,
 
 		// get childs.
 		getChilds,
@@ -90,22 +65,10 @@ UUI.NOTICE = CLASS({
 			childs : [msg]
 		});
 
-		self.getDom = getDom = function() {
-			return modal;
-		};
-
 		self.append = append = function(node) {
 			//REQUIRED: node
 
 			modal.append(node);
-		};
-
-		self.appendTo = appendTo = function(node) {
-			//REQUIRED: node
-
-			node.append(modal);
-
-			return self;
 		};
 
 		self.prepend = prepend = function(node) {
@@ -114,26 +77,10 @@ UUI.NOTICE = CLASS({
 			modal.prepend(node);
 		};
 
-		self.prependTo = prependTo = function(node) {
-			//REQUIRED: node
-
-			node.prepend(modal);
-
-			return self;
-		};
-
 		self.after = after = function(node) {
 			//REQUIRED: node
 
 			modal.after(node);
-		};
-
-		self.insertAfter = insertAfter = function(node) {
-			//REQUIRED: node
-
-			node.after(modal);
-
-			return self;
 		};
 
 		self.before = before = function(node) {
@@ -142,30 +89,12 @@ UUI.NOTICE = CLASS({
 			modal.before(node);
 		};
 
-		self.insertBefore = insertBefore = function(node) {
-			//REQUIRED: node
-
-			node.before(modal);
-
-			return self;
-		};
-
 		self.remove = remove = function() {
 			modal.remove();
 		};
 
 		self.removeAllChilds = removeAllChilds = function() {
 			modal.removeAllChilds();
-		};
-
-		self.getParent = getParent = function() {
-			return modal.getParent();
-		};
-
-		self.setParent = setParent = function(parent) {
-			//REQUIRED: parent
-
-			modal.setParent(parent);
 		};
 
 		self.getChilds = getChilds = function() {

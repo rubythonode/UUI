@@ -39,6 +39,9 @@ UUI.FULL_INPUT = CLASS({
 		// on change.
 		onChange = params.onChange,
 
+		// keydown delay
+		keydownDelay,
+
 		// placeholder style
 		placeholderStyle = COMBINE_DATA({
 			origin : {
@@ -235,9 +238,13 @@ UUI.FULL_INPUT = CLASS({
 			node : input,
 			name : 'keydown'
 		}, function(e) {
-			DELAY(function() {
+			keydownDelay = DELAY(function() {
 				replacePlaceholderButton();
 			});
+		});
+
+		wrapper.addAfterRemoveProc(function() {
+			keydownDelay.remove();
 		});
 
 		input.addChangeValueProc(function() {
