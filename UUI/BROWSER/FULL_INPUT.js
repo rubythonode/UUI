@@ -244,7 +244,9 @@ UUI.FULL_INPUT = CLASS({
 		});
 
 		wrapper.addAfterRemoveProc(function() {
-			keydownDelay.remove();
+			if (keydownDelay !== undefined) {
+				keydownDelay.remove();
+			}
 		});
 
 		input.addChangeValueProc(function() {

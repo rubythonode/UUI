@@ -50,6 +50,9 @@ UUI.MODAL = CLASS({
 		// esc event
 		escEvent,
 
+		// get wrapper.
+		getWrapper,
+
 		// move to center.
 		moveToCenter,
 
@@ -91,23 +94,37 @@ UUI.MODAL = CLASS({
 				style : COMBINE_DATA({
 					origin : {
 						position : 'absolute',
-						top : -10,
-						right : -10,
-						padding : 0
+						top : -20,
+						right : -20,
+						padding : 10
 					},
 					extend : xStyle
 				}),
 				img : xImg,
-				onTap : function() {
+				onTap : function(e) {
 
 					remove();
 
 					if (onClose !== undefined) {
 						onClose();
 					}
+				},
+				onMouseover : function() {
+					addWrapperStyle({
+						opacity : 0.8
+					});
+				},
+				onMouseout : function() {
+					addWrapperStyle({
+						opacity : 1
+					});
 				}
 			})]
 		}).appendTo(BODY);
+
+		inner.getWrapper = getWrapper = function() {
+			return wrapper;
+		};
 
 		moveToCenter = function() {
 
@@ -116,14 +133,39 @@ UUI.MODAL = CLASS({
 			left = (WIN_WIDTH() - wrapper.getWidth()) / 2 + SCROLL_LEFT(),
 
 			// top
-			top = (WIN_HEIGHT() - wrapper.getHeight()) / 2 + SCROLL_TOP();
+			top = (WIN_HEIGHT() - wrapper.getHeight()) / 2 + SCROLL_TOP(),
+
+			// find.
+			find;
 
 			wrapper.addStyle({
 				position : 'absolute',
 				left : left < 0 ? 0 : left,
 				top : top < 0 ? 0 : top
 			});
+
+			find = function(childs) {
+				EACH(childs, function(child) {
+
+					if (child.type === IMG) {
+						EVENT({
+							node : child,
+							name : 'load'
+						}, function() {
+							moveToCenter();
+						});
+					}
+
+					if (child.getChilds !== undefined) {
+						find(child.getChilds());
+					}
+				});
+			};
+
+			find(wrapper.getChilds());
 		};
+
+		wrapper.addAfterShowProc(moveToCenter);
 
 		resizeEvent = EVENT({
 			name : 'resize'
@@ -145,35 +187,6 @@ UUI.MODAL = CLASS({
 					onClose();
 				}
 			}
-		});
-
-		wrapper.addAfterShowProc(function() {
-
-			var
-			// find.
-			find;
-
-			moveToCenter();
-
-			find = function(childs) {
-				EACH(childs, function(child) {
-
-					if (child.type === IMG) {
-						EVENT({
-							node : child,
-							name : 'load'
-						}, function() {
-							moveToCenter();
-						});
-					}
-
-					if (child.getChilds !== undefined) {
-						find(child.getChilds());
-					}
-				});
-			};
-
-			find(wrapper.getChilds());
 		});
 
 		wrapper.addAfterRemoveProc(function() {
