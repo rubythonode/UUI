@@ -126,7 +126,7 @@ UUI.MODAL = CLASS({
 			return wrapper;
 		};
 
-		moveToCenter = function() {
+		moveToCenter = RAR(function() {
 
 			var
 			// left
@@ -163,7 +163,7 @@ UUI.MODAL = CLASS({
 			};
 
 			find(wrapper.getChilds());
-		};
+		});
 
 		wrapper.addAfterShowProc(moveToCenter);
 
