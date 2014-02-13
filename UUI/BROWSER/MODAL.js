@@ -50,11 +50,11 @@ UUI.MODAL = CLASS({
 		// esc event
 		escEvent,
 
-		// get wrapper.
-		getWrapper,
-
 		// move to center.
 		moveToCenter,
+
+		// get dom.
+		getDom,
 
 		// append.
 		append,
@@ -121,10 +121,6 @@ UUI.MODAL = CLASS({
 				}
 			})]
 		}).appendTo(BODY);
-
-		inner.getWrapper = getWrapper = function() {
-			return wrapper;
-		};
 
 		moveToCenter = RAR(function() {
 
@@ -194,6 +190,10 @@ UUI.MODAL = CLASS({
 			scrollEvent.remove();
 			escEvent.remove();
 		});
+
+		self.getDom = getDom = function() {
+			return wrapper;
+		};
 
 		self.append = append = function(node) {
 			//REQUIRED: node

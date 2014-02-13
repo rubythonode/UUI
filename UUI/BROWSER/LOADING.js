@@ -25,6 +25,9 @@ UUI.LOADING = CLASS({
 
 		// modal
 		modal,
+		
+		// get dom.
+		getDom,
 
 		// append.
 		append,
@@ -69,6 +72,10 @@ UUI.LOADING = CLASS({
 				childs : [msg]
 			})]
 		});
+		
+		self.getDom = getDom = function() {
+			return modal.getDom();
+		};
 
 		self.append = append = function(node) {
 			//REQUIRED: node

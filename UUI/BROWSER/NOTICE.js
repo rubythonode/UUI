@@ -26,6 +26,9 @@ UUI.NOTICE = CLASS({
 		// modal
 		modal,
 
+		// get dom.
+		getDom,
+
 		// append.
 		append,
 
@@ -64,6 +67,10 @@ UUI.NOTICE = CLASS({
 			isCannotClose : true,
 			childs : [msg]
 		});
+
+		self.getDom = getDom = function() {
+			return modal.getDom();
+		};
 
 		self.append = append = function(node) {
 			//REQUIRED: node
