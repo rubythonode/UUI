@@ -10,7 +10,7 @@ UUI.BUTTON = CLASS({
 	init : function(cls, inner, self, params) {'use strict';
 		//REQUIRED: params
 		//OPTIONAL: params.img
-		//OPTIONAL: params.msg
+		//OPTIONAL: params.title
 		//OPTIONAL: params.spacing
 		//OPTIONAL: params.href
 		//OPTIONAL: params.target
@@ -23,8 +23,8 @@ UUI.BUTTON = CLASS({
 		// img
 		img = params.img,
 
-		// msg
-		msg = params.msg,
+		// title
+		title = params.title,
 
 		// spacing
 		spacing = params.spacing === undefined ? 0 : params.spacing,
@@ -53,8 +53,8 @@ UUI.BUTTON = CLASS({
 		// span
 		span,
 
-		// set msg.
-		setMsg,
+		// set title.
+		setTitle,
 
 		// get img.
 		getImg,
@@ -121,16 +121,18 @@ UUI.BUTTON = CLASS({
 				display : 'block',
 				textAlign : 'center',
 				cursor : 'pointer',
-				textDecoration : 'none'
+				textDecoration : 'none',
+				touchCallout : 'none',
+				userSelect : 'none'
 			},
 			href : href,
 			target : target
 		});
 
-		if (msg !== undefined) {
+		if (title !== undefined) {
 			a.prepend(DIV({
 				childs : [ span = SPAN({
-					childs : [msg === undefined ? '' : msg]
+					childs : [title === undefined ? '' : title]
 				})]
 			}));
 		}
@@ -138,7 +140,7 @@ UUI.BUTTON = CLASS({
 		if (img !== undefined) {
 			a.prepend(DIV({
 				style : {
-					marginBottom : msg !== undefined ? spacing : 0
+					marginBottom : title !== undefined ? spacing : 0
 				},
 				childs : [img]
 			}));
@@ -171,9 +173,9 @@ UUI.BUTTON = CLASS({
 			});
 		}
 
-		self.setMsg = setMsg = function(msg) {
+		self.setTitle = setTitle = function(title) {
 			span.removeAllChilds();
-			span.append(msg);
+			span.append(title);
 		};
 
 		self.getImg = getImg = function() {

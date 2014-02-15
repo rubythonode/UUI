@@ -93,12 +93,13 @@ UUI.MODAL = CLASS({
 			childs : [ content = DIV(), isCannotClose === true ? '' : UUI.IMG_BUTTON({
 				style : COMBINE_DATA({
 					origin : {
-						position : 'absolute',
+						position : 'absolute'
+					},
+					extend : xStyle === undefined ? {
 						top : -20,
 						right : -20,
 						padding : 10
-					},
-					extend : xStyle
+					} : xStyle
 				}),
 				img : xImg,
 				onTap : function(e) {

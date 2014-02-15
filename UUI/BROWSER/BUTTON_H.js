@@ -10,7 +10,7 @@ UUI.BUTTON_H = CLASS({
 	init : function(cls, inner, self, params) {'use strict';
 		//REQUIRED: params
 		//OPTIONAL: params.img
-		//OPTIONAL: params.msg
+		//OPTIONAL: params.title
 		//OPTIONAL: params.spacing
 		//OPTIONAL: params.href
 		//OPTIONAL: params.target
@@ -23,8 +23,8 @@ UUI.BUTTON_H = CLASS({
 		// img
 		img = params.img,
 
-		// msg
-		msg = params.msg,
+		// title
+		title = params.title,
 
 		// spacing
 		spacing = params.spacing === undefined ? 0 : params.spacing,
@@ -56,14 +56,14 @@ UUI.BUTTON_H = CLASS({
 		// evt
 		evt,
 
-		// set msg.
-		setMsg,
+		// set title.
+		setTitle,
 
 		// get img.
 		getImg,
 
-		// msg dom
-		msgDom,
+		// title dom
+		titleDom,
 
 		// get dom.
 		getDom,
@@ -126,16 +126,18 @@ UUI.BUTTON_H = CLASS({
 			style : {
 				display : 'block',
 				cursor : 'pointer',
-				textDecoration : 'none'
+				textDecoration : 'none',
+				touchCallout : 'none',
+				userSelect : 'none'
 			},
 			href : href,
 			target : target,
-			childs : [ msgDom = DIV({
+			childs : [ titleDom = DIV({
 				style : {
 					flt : 'left'
 				},
 				childs : [ span = SPAN({
-					childs : [msg === undefined ? '' : msg]
+					childs : [title === undefined ? '' : title]
 				})]
 			}), CLEAR_BOTH()]
 		});
@@ -158,8 +160,8 @@ UUI.BUTTON_H = CLASS({
 				node : img,
 				name : 'load'
 			}, function(e) {
-				msgDom.addStyle({
-					marginTop : (img.getHeight() - msgDom.getHeight()) / 2
+				titleDom.addStyle({
+					marginTop : (img.getHeight() - titleDom.getHeight()) / 2
 				});
 
 				evt.remove();
@@ -193,9 +195,9 @@ UUI.BUTTON_H = CLASS({
 			});
 		}
 
-		self.setMsg = setMsg = function(msg) {
+		self.setTitle = setTitle = function(title) {
 			span.removeAllChilds();
-			span.append(msg);
+			span.append(title);
 		};
 
 		self.getImg = getImg = function() {

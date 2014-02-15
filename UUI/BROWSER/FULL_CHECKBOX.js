@@ -45,8 +45,8 @@ UUI.FULL_CHECKBOX = CLASS({
 		// input
 		input,
 
-		// button
-		button,
+		// label dom
+		labelDom,
 
 		// get dom.
 		getDom,
@@ -127,6 +127,12 @@ UUI.FULL_CHECKBOX = CLASS({
 			style : {
 				position : 'relative'
 			},
+			on : {
+				tap : function(e) {
+					input.toggleCheck();
+					e.stop();
+				}
+			},
 			childs : [ input = INPUT({
 				style : {
 					flt : 'left',
@@ -135,14 +141,11 @@ UUI.FULL_CHECKBOX = CLASS({
 				name : name,
 				type : 'checkbox',
 				value : value
-			}), button = UUI.TEXT_BUTTON({
+			}), labelDom = SPAN({
 				style : {
 					flt : 'left'
 				},
-				onTap : function(e) {
-					input.toggleCheck();
-				},
-				msg : label
+				childs : [label]
 			}), CLEAR_BOTH()]
 		});
 
@@ -161,7 +164,7 @@ UUI.FULL_CHECKBOX = CLASS({
 
 		if (childs !== undefined) {
 			EACH(childs, function(child, i) {
-				button.after(child);
+				labelDom.after(child);
 			});
 		}
 

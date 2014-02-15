@@ -10,19 +10,15 @@ UUI.LIST = CLASS({
 	init : function(cls, inner, self, params) {'use strict';
 		//OPTIONAL: params
 		//OPTIONAL: params.childs
-		//OPTIONAL: params.listStyle
-		//OPTIONAL: params.itemStyle
+		//OPTIONAL: params.style
 		//OPTIONAL: params.items
 
 		var
 		// childs
 		childs = params === undefined ? undefined : params.childs,
 
-		// list style
-		listStyle = params === undefined ? undefined : params.listStyle,
-
-		// item style
-		itemStyle = params === undefined ? undefined : params.itemStyle,
+		// style
+		style = params === undefined ? undefined : params.style,
 
 		// items
 		items = params === undefined ? undefined : params.items,
@@ -78,11 +74,8 @@ UUI.LIST = CLASS({
 		// get childs.
 		getChilds,
 
-		// add list style.
-		addListStyle,
-
-		// add item style.
-		addItemStyle,
+		// add style.
+		addStyle,
 
 		// add item.
 		addItem,
@@ -199,30 +192,14 @@ UUI.LIST = CLASS({
 			return ul.getChilds();
 		};
 
-		self.addListStyle = addListStyle = function(style) {
+		self.addStyle = addStyle = function(style) {
 			//REQUIRED: style
 
 			ul.addStyle(style);
 		};
 
-		if (listStyle !== undefined) {
-			addListStyle(listStyle);
-		}
-
-		self.addItemStyle = addItemStyle = function(style) {
-			//REQUIRED: style
-
-			EACH(style, function(value, name) {
-				itemStyle[name] = value;
-			});
-
-			EACH(items, function(item, key) {
-				item.addStyle(style);
-			});
-		};
-
-		if (itemStyle !== undefined) {
-			addItemStyle(itemStyle);
+		if (style !== undefined) {
+			addStyle(style);
 		}
 
 		self.addItem = addItem = function(params) {
@@ -240,8 +217,6 @@ UUI.LIST = CLASS({
 
 			// is first
 			isFirst = params.isFirst;
-
-			item.addStyle(itemStyle);
 
 			if (items[key] !== undefined) {
 
@@ -266,7 +241,7 @@ UUI.LIST = CLASS({
 		};
 
 		EACH(items, function(item, key) {
-			item.addStyle(itemStyle);
+
 			itemStack.push(item);
 
 			ul.append(item);

@@ -105,7 +105,9 @@ UUI.IMG_BUTTON = CLASS({
 		a = A({
 			style : {
 				cursor : 'pointer',
-				textDecoration : 'none'
+				textDecoration : 'none',
+				touchCallout : 'none',
+				userSelect : 'none'
 			},
 			href : href,
 			target : target,

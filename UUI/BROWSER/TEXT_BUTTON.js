@@ -9,7 +9,7 @@ UUI.TEXT_BUTTON = CLASS({
 
 	init : function(cls, inner, self, params) {'use strict';
 		//REQUIRED: params
-		//OPTIONAL: params.msg
+		//OPTIONAL: params.title
 		//OPTIONAL: params.href
 		//OPTIONAL: params.target
 		//OPTIONAL: params.style
@@ -18,8 +18,8 @@ UUI.TEXT_BUTTON = CLASS({
 		//OPTIONAL: params.onMouseout
 
 		var
-		// msg
-		msg = params.msg,
+		// title
+		title = params.title,
 
 		// href
 		href = params.href,
@@ -45,8 +45,8 @@ UUI.TEXT_BUTTON = CLASS({
 		// span
 		span,
 
-		// set msg.
-		setMsg,
+		// set title.
+		setTitle,
 
 		// get dom.
 		getDom,
@@ -108,12 +108,14 @@ UUI.TEXT_BUTTON = CLASS({
 		a = A({
 			style : {
 				cursor : 'pointer',
-				textDecoration : 'none'
+				textDecoration : 'none',
+				touchCallout : 'none',
+				userSelect : 'none'
 			},
 			href : href,
 			target : target,
 			childs : [ span = SPAN({
-				childs : [msg === undefined ? '' : msg]
+				childs : [title === undefined ? '' : title]
 			})]
 		});
 
@@ -144,9 +146,9 @@ UUI.TEXT_BUTTON = CLASS({
 			});
 		}
 
-		self.setMsg = setMsg = function(msg) {
+		self.setTitle = setTitle = function(title) {
 			span.removeAllChilds();
-			span.append(msg);
+			span.append(title);
 		};
 
 		self.getDom = getDom = function() {

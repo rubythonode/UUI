@@ -174,7 +174,7 @@ UUI.FULL_INPUT = CLASS({
 					onChange : replacePlaceholderButton
 				}), placeholderButton = UUI.TEXT_BUTTON({
 					style : placeholderStyle,
-					msg : placeholder,
+					title : placeholder,
 					onTap : function() {
 						focus();
 					}
