@@ -9,12 +9,12 @@ UUI.V_CENTER = CLASS({
 
 	init : function(cls, inner, self, params) {'use strict';
 		//OPTIONAL: params
-		//OPTIONAL: params.childs
+		//OPTIONAL: params.children
 		//OPTIONAL: params.style
 
 		var
-		// childs
-		childs = params === undefined ? undefined : params.childs,
+		// children
+		children = params === undefined ? undefined : params.children,
 
 		// wrapper style
 		wrapperStyle = params === undefined ? undefined : params.wrapperStyle,
@@ -58,8 +58,8 @@ UUI.V_CENTER = CLASS({
 		// remove.
 		remove,
 
-		// remove all childs.
-		removeAllChilds,
+		// remove all children.
+		removeAllChildren,
 
 		// get parent.
 		getParent,
@@ -67,8 +67,8 @@ UUI.V_CENTER = CLASS({
 		// set parent.
 		setParent,
 
-		// get childs.
-		getChilds,
+		// get children.
+		getChildren,
 
 		// add wrapper style.
 		addWrapperStyle,
@@ -91,12 +91,12 @@ UUI.V_CENTER = CLASS({
 				margin : 0,
 				padding : 0
 			},
-			childs : [TR({
+			children : [TR({
 				style : {
 					margin : 0,
 					padding : 0
 				},
-				childs : [ content = TD({
+				children : [ content = TD({
 					style : {
 						margin : 0,
 						padding : 0
@@ -115,8 +115,8 @@ UUI.V_CENTER = CLASS({
 			content.append(node);
 		};
 
-		if (childs !== undefined) {
-			EACH(childs, function(child, i) {
+		if (children !== undefined) {
+			EACH(children, function(child, i) {
 				append(child);
 			});
 		}
@@ -175,8 +175,8 @@ UUI.V_CENTER = CLASS({
 			wrapper.remove();
 		};
 
-		self.removeAllChilds = removeAllChilds = function() {
-			content.removeAllChilds();
+		self.removeAllChildren = removeAllChildren = function() {
+			content.removeAllChildren();
 		};
 
 		self.getParent = getParent = function() {
@@ -189,8 +189,8 @@ UUI.V_CENTER = CLASS({
 			wrapper.setParent(parent);
 		};
 
-		self.getChilds = getChilds = function() {
-			return content.getChilds();
+		self.getChildren = getChildren = function() {
+			return content.getChildren();
 		};
 
 		self.addWrapperStyle = addWrapperStyle = function(style) {

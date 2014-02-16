@@ -9,13 +9,13 @@ UUI.TABLE = CLASS({
 
 	init : function(cls, inner, self, params) {'use strict';
 		//OPTIONAL: params
-		//OPTIONAL: params.childs
+		//OPTIONAL: params.children
 		//OPTIONAL: params.style
 		//OPTIONAL: params.trs
 
 		var
-		// childs
-		childs = params === undefined ? undefined : params.childs,
+		// children
+		children = params === undefined ? undefined : params.children,
 
 		// style
 		style = params === undefined ? undefined : params.style,
@@ -62,8 +62,8 @@ UUI.TABLE = CLASS({
 		// remove.
 		remove,
 
-		// remove all childs.
-		removeAllChilds,
+		// remove all children.
+		removeAllChildren,
 
 		// get parent.
 		getParent,
@@ -71,8 +71,8 @@ UUI.TABLE = CLASS({
 		// set parent.
 		setParent,
 
-		// get childs.
-		getChilds,
+		// get children.
+		getChildren,
 
 		// add style.
 		addStyle,
@@ -114,8 +114,8 @@ UUI.TABLE = CLASS({
 			table.append(node);
 		};
 
-		if (childs !== undefined) {
-			EACH(childs, function(child, i) {
+		if (children !== undefined) {
+			EACH(children, function(child, i) {
 				append(child);
 			});
 		}
@@ -174,8 +174,8 @@ UUI.TABLE = CLASS({
 			table.remove();
 		};
 
-		self.removeAllChilds = removeAllChilds = function() {
-			table.removeAllChilds();
+		self.removeAllChildren = removeAllChildren = function() {
+			table.removeAllChildren();
 		};
 
 		self.getParent = getParent = function() {
@@ -188,8 +188,8 @@ UUI.TABLE = CLASS({
 			table.setParent(parent);
 		};
 
-		self.getChilds = getChilds = function() {
-			return table.getChilds();
+		self.getChildren = getChildren = function() {
+			return table.getChildren();
 		};
 
 		self.addStyle = addStyle = function(style) {

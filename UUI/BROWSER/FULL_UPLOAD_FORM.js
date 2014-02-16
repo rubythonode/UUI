@@ -84,8 +84,8 @@ UUI.FULL_UPLOAD_FORM = CLASS({
 		// remove.
 		remove,
 
-		// remove all childs.
-		removeAllChilds,
+		// remove all children.
+		removeAllChildren,
 
 		// get parent.
 		getParent,
@@ -93,8 +93,8 @@ UUI.FULL_UPLOAD_FORM = CLASS({
 		// set parent.
 		setParent,
 
-		// get childs.
-		getChilds,
+		// get children.
+		getChildren,
 
 		// show.
 		show,
@@ -138,7 +138,7 @@ UUI.FULL_UPLOAD_FORM = CLASS({
 				background : '#FFF',
 				position : 'relative'
 			},
-			childs : [ iframe = IFRAME({
+			children : [ iframe = IFRAME({
 				style : {
 					display : 'none'
 				},
@@ -151,7 +151,7 @@ UUI.FULL_UPLOAD_FORM = CLASS({
 				style : {
 					padding : 5
 				},
-				childs : [ input = INPUT({
+				children : [ input = INPUT({
 					type : 'file',
 					isMultiple : true,
 					style : {
@@ -188,7 +188,7 @@ UUI.FULL_UPLOAD_FORM = CLASS({
 					textAlign : 'center',
 					borderRadius : 10
 				},
-				childs : ['Uploading...']
+				children : ['Uploading...']
 			})]
 		});
 
@@ -296,8 +296,8 @@ UUI.FULL_UPLOAD_FORM = CLASS({
 			wrapper.remove();
 		};
 
-		self.removeAllChilds = removeAllChilds = function() {
-			wrapper.removeAllChilds();
+		self.removeAllChildren = removeAllChildren = function() {
+			wrapper.removeAllChildren();
 		};
 
 		self.getParent = getParent = function() {
@@ -310,8 +310,8 @@ UUI.FULL_UPLOAD_FORM = CLASS({
 			wrapper.setParent(parent);
 		};
 
-		self.getChilds = getChilds = function() {
-			return wrapper.getChilds();
+		self.getChildren = getChildren = function() {
+			return wrapper.getChildren();
 		};
 
 		self.show = show = function() {

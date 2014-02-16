@@ -89,8 +89,8 @@ UUI.BUTTON = CLASS({
 		// remove.
 		remove,
 
-		// remove all childs.
-		removeAllChilds,
+		// remove all children.
+		removeAllChildren,
 
 		// get parent.
 		getParent,
@@ -98,8 +98,8 @@ UUI.BUTTON = CLASS({
 		// set parent.
 		setParent,
 
-		// get childs.
-		getChilds,
+		// get children.
+		getChildren,
 
 		// add style.
 		addStyle,
@@ -131,8 +131,8 @@ UUI.BUTTON = CLASS({
 
 		if (title !== undefined) {
 			a.prepend(DIV({
-				childs : [ span = SPAN({
-					childs : [title === undefined ? '' : title]
+				children : [ span = SPAN({
+					children : [title === undefined ? '' : title]
 				})]
 			}));
 		}
@@ -142,7 +142,7 @@ UUI.BUTTON = CLASS({
 				style : {
 					marginBottom : title !== undefined ? spacing : 0
 				},
-				childs : [img]
+				children : [img]
 			}));
 		}
 
@@ -174,7 +174,7 @@ UUI.BUTTON = CLASS({
 		}
 
 		self.setTitle = setTitle = function(title) {
-			span.removeAllChilds();
+			span.removeAllChildren();
 			span.append(title);
 		};
 
@@ -246,8 +246,8 @@ UUI.BUTTON = CLASS({
 			a.remove();
 		};
 
-		self.removeAllChilds = removeAllChilds = function() {
-			a.removeAllChilds();
+		self.removeAllChildren = removeAllChildren = function() {
+			a.removeAllChildren();
 		};
 
 		self.getParent = getParent = function() {
@@ -260,8 +260,8 @@ UUI.BUTTON = CLASS({
 			a.setParent(parent);
 		};
 
-		self.getChilds = getChilds = function() {
-			return a.getChilds();
+		self.getChildren = getChildren = function() {
+			return a.getChildren();
 		};
 
 		self.addStyle = addStyle = function(style) {

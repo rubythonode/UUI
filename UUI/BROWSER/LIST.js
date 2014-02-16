@@ -9,13 +9,13 @@ UUI.LIST = CLASS({
 
 	init : function(cls, inner, self, params) {'use strict';
 		//OPTIONAL: params
-		//OPTIONAL: params.childs
+		//OPTIONAL: params.children
 		//OPTIONAL: params.style
 		//OPTIONAL: params.items
 
 		var
-		// childs
-		childs = params === undefined ? undefined : params.childs,
+		// children
+		children = params === undefined ? undefined : params.children,
 
 		// style
 		style = params === undefined ? undefined : params.style,
@@ -62,8 +62,8 @@ UUI.LIST = CLASS({
 		// remove.
 		remove,
 
-		// remove all childs.
-		removeAllChilds,
+		// remove all children.
+		removeAllChildren,
 
 		// get parent.
 		getParent,
@@ -71,8 +71,8 @@ UUI.LIST = CLASS({
 		// set parent.
 		setParent,
 
-		// get childs.
-		getChilds,
+		// get children.
+		getChildren,
 
 		// add style.
 		addStyle,
@@ -114,8 +114,8 @@ UUI.LIST = CLASS({
 			ul.append(node);
 		};
 
-		if (childs !== undefined) {
-			EACH(childs, function(child, i) {
+		if (children !== undefined) {
+			EACH(children, function(child, i) {
 				append(child);
 			});
 		}
@@ -174,8 +174,8 @@ UUI.LIST = CLASS({
 			ul.remove();
 		};
 
-		self.removeAllChilds = removeAllChilds = function() {
-			ul.removeAllChilds();
+		self.removeAllChildren = removeAllChildren = function() {
+			ul.removeAllChildren();
 		};
 
 		self.getParent = getParent = function() {
@@ -188,8 +188,8 @@ UUI.LIST = CLASS({
 			ul.setParent(parent);
 		};
 
-		self.getChilds = getChilds = function() {
-			return ul.getChilds();
+		self.getChildren = getChildren = function() {
+			return ul.getChildren();
 		};
 
 		self.addStyle = addStyle = function(style) {

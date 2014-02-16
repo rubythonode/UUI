@@ -44,11 +44,11 @@ UUI.NOTICE = CLASS({
 		// remove.
 		remove,
 
-		// remove all childs.
-		removeAllChilds,
+		// remove all children.
+		removeAllChildren,
 
-		// get childs.
-		getChilds,
+		// get children.
+		getChildren,
 
 		// add wrapper style.
 		addWrapperStyle,
@@ -65,7 +65,7 @@ UUI.NOTICE = CLASS({
 			}),
 			contentStyle : contentStyle,
 			isCannotClose : true,
-			childs : [msg]
+			children : [msg]
 		});
 
 		self.getDom = getDom = function() {
@@ -100,12 +100,12 @@ UUI.NOTICE = CLASS({
 			modal.remove();
 		};
 
-		self.removeAllChilds = removeAllChilds = function() {
-			modal.removeAllChilds();
+		self.removeAllChildren = removeAllChildren = function() {
+			modal.removeAllChildren();
 		};
 
-		self.getChilds = getChilds = function() {
-			return modal.getChilds();
+		self.getChildren = getChildren = function() {
+			return modal.getChildren();
 		};
 
 		self.addWrapperStyle = addWrapperStyle = function(style) {

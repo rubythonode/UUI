@@ -12,7 +12,7 @@ UUI.FULL_CHECKBOX = CLASS({
 		//REQUIRED: params.name
 		//REQUIRED: params.label
 		//OPTIONAL: params.value
-		//OPTIONAL: params.childs
+		//OPTIONAL: params.children
 		//OPTIONAL: params.wrapperStyle
 		//OPTIONAL: params.inputStyle
 		//OPTIONAL: params.onChange
@@ -27,8 +27,8 @@ UUI.FULL_CHECKBOX = CLASS({
 		// value
 		value = params.value,
 
-		// childs
-		childs = params.childs,
+		// children
+		children = params.children,
 
 		// wrapper style
 		wrapperStyle = params.wrapperStyle,
@@ -78,8 +78,8 @@ UUI.FULL_CHECKBOX = CLASS({
 		// remove.
 		remove,
 
-		// remove all childs.
-		removeAllChilds,
+		// remove all children.
+		removeAllChildren,
 
 		// get parent.
 		getParent,
@@ -87,8 +87,8 @@ UUI.FULL_CHECKBOX = CLASS({
 		// set parent.
 		setParent,
 
-		// get childs.
-		getChilds,
+		// get children.
+		getChildren,
 
 		// get name.
 		getName,
@@ -133,7 +133,7 @@ UUI.FULL_CHECKBOX = CLASS({
 					e.stop();
 				}
 			},
-			childs : [ input = INPUT({
+			children : [ input = INPUT({
 				style : {
 					flt : 'left',
 					marginRight : 5
@@ -145,7 +145,7 @@ UUI.FULL_CHECKBOX = CLASS({
 				style : {
 					flt : 'left'
 				},
-				childs : [label]
+				children : [label]
 			}), CLEAR_BOTH()]
 		});
 
@@ -162,8 +162,8 @@ UUI.FULL_CHECKBOX = CLASS({
 			wrapper.append(node);
 		};
 
-		if (childs !== undefined) {
-			EACH(childs, function(child, i) {
+		if (children !== undefined) {
+			EACH(children, function(child, i) {
 				labelDom.after(child);
 			});
 		}
@@ -222,8 +222,8 @@ UUI.FULL_CHECKBOX = CLASS({
 			wrapper.remove();
 		};
 
-		self.removeAllChilds = removeAllChilds = function() {
-			wrapper.removeAllChilds();
+		self.removeAllChildren = removeAllChildren = function() {
+			wrapper.removeAllChildren();
 		};
 
 		self.getParent = getParent = function() {
@@ -236,8 +236,8 @@ UUI.FULL_CHECKBOX = CLASS({
 			wrapper.setParent(parent);
 		};
 
-		self.getChilds = getChilds = function() {
-			return wrapper.getChilds();
+		self.getChildren = getChildren = function() {
+			return wrapper.getChildren();
 		};
 
 		self.getName = getName = function() {

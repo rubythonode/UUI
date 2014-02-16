@@ -71,8 +71,8 @@ UUI.FULL_SELECT = CLASS({
 		// remove.
 		remove,
 
-		// remove all childs.
-		removeAllChilds,
+		// remove all children.
+		removeAllChildren,
 
 		// get parent.
 		getParent,
@@ -80,8 +80,8 @@ UUI.FULL_SELECT = CLASS({
 		// set parent.
 		setParent,
 
-		// get childs.
-		getChilds,
+		// get children.
+		getChildren,
 
 		// get name.
 		getName,
@@ -125,7 +125,7 @@ UUI.FULL_SELECT = CLASS({
 				backgroundColor : '#FFF',
 				position : 'relative'
 			},
-			childs : [ _select = SELECT({
+			children : [ _select = SELECT({
 				style : {
 					width : '100%',
 					backgroundColor : 'transparent',
@@ -202,8 +202,8 @@ UUI.FULL_SELECT = CLASS({
 			wrapper.remove();
 		};
 
-		self.removeAllChilds = removeAllChilds = function() {
-			wrapper.removeAllChilds();
+		self.removeAllChildren = removeAllChildren = function() {
+			wrapper.removeAllChildren();
 		};
 
 		self.getParent = getParent = function() {
@@ -216,8 +216,8 @@ UUI.FULL_SELECT = CLASS({
 			wrapper.setParent(parent);
 		};
 
-		self.getChilds = getChilds = function() {
-			return wrapper.getChilds();
+		self.getChildren = getChildren = function() {
+			return wrapper.getChildren();
 		};
 
 		self.getName = getName = function() {

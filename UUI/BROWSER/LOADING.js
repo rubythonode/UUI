@@ -44,11 +44,11 @@ UUI.LOADING = CLASS({
 		// remove.
 		remove,
 
-		// remove all childs.
-		removeAllChilds,
+		// remove all children.
+		removeAllChildren,
 
-		// get childs.
-		getChilds,
+		// get children.
+		getChildren,
 
 		// add wrapper style.
 		addWrapperStyle,
@@ -65,11 +65,11 @@ UUI.LOADING = CLASS({
 			}),
 			contentStyle : contentStyle,
 			isCannotClose : true,
-			childs : [indicator === undefined ? '' : indicator, P({
+			children : [indicator === undefined ? '' : indicator, P({
 				style : indicator === undefined ? {} : {
 					marginTop : 10
 				},
-				childs : [msg]
+				children : [msg]
 			})]
 		});
 		
@@ -105,12 +105,12 @@ UUI.LOADING = CLASS({
 			modal.remove();
 		};
 
-		self.removeAllChilds = removeAllChilds = function() {
-			modal.removeAllChilds();
+		self.removeAllChildren = removeAllChildren = function() {
+			modal.removeAllChildren();
 		};
 
-		self.getChilds = getChilds = function() {
-			return modal.getChilds();
+		self.getChildren = getChildren = function() {
+			return modal.getChildren();
 		};
 
 		self.addWrapperStyle = addWrapperStyle = function(style) {

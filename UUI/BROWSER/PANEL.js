@@ -9,13 +9,13 @@ UUI.PANEL = CLASS({
 
 	init : function(cls, inner, self, params) {'use strict';
 		//OPTIONAL: params
-		//OPTIONAL: params.childs
+		//OPTIONAL: params.children
 		//OPTIONAL: params.wrapperStyle
 		//OPTIONAL: params.contentStyle
 
 		var
-		// childs
-		childs = params === undefined ? undefined : params.childs,
+		// children
+		children = params === undefined ? undefined : params.children,
 
 		// wrapper style
 		wrapperStyle = params === undefined ? undefined : params.wrapperStyle,
@@ -59,8 +59,8 @@ UUI.PANEL = CLASS({
 		// remove.
 		remove,
 
-		// remove all childs.
-		removeAllChilds,
+		// remove all children.
+		removeAllChildren,
 
 		// get parent.
 		getParent,
@@ -68,8 +68,8 @@ UUI.PANEL = CLASS({
 		// set parent.
 		setParent,
 
-		// get childs.
-		getChilds,
+		// get children.
+		getChildren,
 
 		// add wrapper style.
 		addWrapperStyle,
@@ -87,7 +87,7 @@ UUI.PANEL = CLASS({
 		checkIsShow;
 
 		wrapper = DIV({
-			childs : [ content = DIV()]
+			children : [ content = DIV()]
 		});
 
 		self.getDom = getDom = function() {
@@ -100,8 +100,8 @@ UUI.PANEL = CLASS({
 			content.append(node);
 		};
 
-		if (childs !== undefined) {
-			EACH(childs, function(child, i) {
+		if (children !== undefined) {
+			EACH(children, function(child, i) {
 				append(child);
 			});
 		}
@@ -160,8 +160,8 @@ UUI.PANEL = CLASS({
 			wrapper.remove();
 		};
 
-		self.removeAllChilds = removeAllChilds = function() {
-			content.removeAllChilds();
+		self.removeAllChildren = removeAllChildren = function() {
+			content.removeAllChildren();
 		};
 
 		self.getParent = getParent = function() {
@@ -174,8 +174,8 @@ UUI.PANEL = CLASS({
 			wrapper.setParent(parent);
 		};
 
-		self.getChilds = getChilds = function() {
-			return content.getChilds();
+		self.getChildren = getChildren = function() {
+			return content.getChildren();
 		};
 
 		self.addWrapperStyle = addWrapperStyle = function(style) {

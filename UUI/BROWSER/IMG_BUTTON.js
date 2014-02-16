@@ -75,8 +75,8 @@ UUI.IMG_BUTTON = CLASS({
 		// remove.
 		remove,
 
-		// remove all childs.
-		removeAllChilds,
+		// remove all children.
+		removeAllChildren,
 
 		// get parent.
 		getParent,
@@ -84,8 +84,8 @@ UUI.IMG_BUTTON = CLASS({
 		// set parent.
 		setParent,
 
-		// get childs.
-		getChilds,
+		// get children.
+		getChildren,
 
 		// add style.
 		addStyle,
@@ -111,7 +111,7 @@ UUI.IMG_BUTTON = CLASS({
 			},
 			href : href,
 			target : target,
-			childs : [img]
+			children : [img]
 		});
 
 		if (onTap !== undefined) {
@@ -209,8 +209,8 @@ UUI.IMG_BUTTON = CLASS({
 			a.remove();
 		};
 
-		self.removeAllChilds = removeAllChilds = function() {
-			a.removeAllChilds();
+		self.removeAllChildren = removeAllChildren = function() {
+			a.removeAllChildren();
 		};
 
 		self.getParent = getParent = function() {
@@ -223,8 +223,8 @@ UUI.IMG_BUTTON = CLASS({
 			a.setParent(parent);
 		};
 
-		self.getChilds = getChilds = function() {
-			return a.getChilds();
+		self.getChildren = getChildren = function() {
+			return a.getChildren();
 		};
 
 		self.addStyle = addStyle = function(style) {

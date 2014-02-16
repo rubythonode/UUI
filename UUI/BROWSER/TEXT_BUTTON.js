@@ -78,8 +78,8 @@ UUI.TEXT_BUTTON = CLASS({
 		// remove.
 		remove,
 
-		// remove all childs.
-		removeAllChilds,
+		// remove all children.
+		removeAllChildren,
 
 		// get parent.
 		getParent,
@@ -87,8 +87,8 @@ UUI.TEXT_BUTTON = CLASS({
 		// set parent.
 		setParent,
 
-		// get childs.
-		getChilds,
+		// get children.
+		getChildren,
 
 		// add style.
 		addStyle,
@@ -114,8 +114,8 @@ UUI.TEXT_BUTTON = CLASS({
 			},
 			href : href,
 			target : target,
-			childs : [ span = SPAN({
-				childs : [title === undefined ? '' : title]
+			children : [ span = SPAN({
+				children : [title === undefined ? '' : title]
 			})]
 		});
 
@@ -147,7 +147,7 @@ UUI.TEXT_BUTTON = CLASS({
 		}
 
 		self.setTitle = setTitle = function(title) {
-			span.removeAllChilds();
+			span.removeAllChildren();
 			span.append(title);
 		};
 
@@ -215,8 +215,8 @@ UUI.TEXT_BUTTON = CLASS({
 			a.remove();
 		};
 
-		self.removeAllChilds = removeAllChilds = function() {
-			a.removeAllChilds();
+		self.removeAllChildren = removeAllChildren = function() {
+			a.removeAllChildren();
 		};
 
 		self.getParent = getParent = function() {
@@ -229,8 +229,8 @@ UUI.TEXT_BUTTON = CLASS({
 			a.setParent(parent);
 		};
 
-		self.getChilds = getChilds = function() {
-			return a.getChilds();
+		self.getChildren = getChildren = function() {
+			return a.getChildren();
 		};
 
 		self.addStyle = addStyle = function(style) {

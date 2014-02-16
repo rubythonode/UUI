@@ -52,8 +52,8 @@ UUI.FULL_SUBMIT = CLASS({
 		// remove.
 		remove,
 
-		// remove all childs.
-		removeAllChilds,
+		// remove all children.
+		removeAllChildren,
 
 		// get parent.
 		getParent,
@@ -61,8 +61,8 @@ UUI.FULL_SUBMIT = CLASS({
 		// set parent.
 		setParent,
 
-		// get childs.
-		getChilds,
+		// get children.
+		getChildren,
 
 		// add style.
 		addStyle,
@@ -154,8 +154,8 @@ UUI.FULL_SUBMIT = CLASS({
 			input.remove();
 		};
 
-		self.removeAllChilds = removeAllChilds = function() {
-			input.removeAllChilds();
+		self.removeAllChildren = removeAllChildren = function() {
+			input.removeAllChildren();
 		};
 
 		self.getParent = getParent = function() {
@@ -168,8 +168,8 @@ UUI.FULL_SUBMIT = CLASS({
 			input.setParent(parent);
 		};
 
-		self.getChilds = getChilds = function() {
-			return input.getChilds();
+		self.getChildren = getChildren = function() {
+			return input.getChildren();
 		};
 
 		self.addStyle = addStyle = function(style) {

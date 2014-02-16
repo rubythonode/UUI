@@ -11,7 +11,7 @@ UUI.VALID_FORM = CLASS({
 		//OPTIONAL: params
 		//OPTIONAL: params.errorMsgs
 		//OPTIONAL: params.onSubmit
-		//OPTIONAL: params.childs
+		//OPTIONAL: params.children
 		//OPTIONAL: params.style
 		//OPTIONAL: params.errorMsgStyle
 
@@ -22,8 +22,8 @@ UUI.VALID_FORM = CLASS({
 		// on submit
 		onSubmit = params === undefined ? undefined : params.onSubmit,
 
-		// childs
-		childs = params === undefined ? undefined : params.childs,
+		// children
+		children = params === undefined ? undefined : params.children,
 
 		// style
 		style = params === undefined ? undefined : params.style,
@@ -64,8 +64,8 @@ UUI.VALID_FORM = CLASS({
 		// remove.
 		remove,
 
-		// remove all childs.
-		removeAllChilds,
+		// remove all children.
+		removeAllChildren,
 
 		// get parent.
 		getParent,
@@ -73,8 +73,8 @@ UUI.VALID_FORM = CLASS({
 		// set parent.
 		setParent,
 
-		// get childs.
-		getChilds,
+		// get children.
+		getChildren,
 
 		// get data.
 		getData,
@@ -118,8 +118,8 @@ UUI.VALID_FORM = CLASS({
 			form.append(node);
 		};
 
-		if (childs !== undefined) {
-			EACH(childs, function(child, i) {
+		if (children !== undefined) {
+			EACH(children, function(child, i) {
 				append(child);
 			});
 		}
@@ -178,8 +178,8 @@ UUI.VALID_FORM = CLASS({
 			form.remove();
 		};
 
-		self.removeAllChilds = removeAllChilds = function() {
-			form.removeAllChilds();
+		self.removeAllChildren = removeAllChildren = function() {
+			form.removeAllChildren();
 		};
 
 		self.getParent = getParent = function() {
@@ -192,8 +192,8 @@ UUI.VALID_FORM = CLASS({
 			form.setParent(parent);
 		};
 
-		self.getChilds = getChilds = function() {
-			return form.getChilds();
+		self.getChildren = getChildren = function() {
+			return form.getChildren();
 		};
 
 		self.getData = getData = function() {
@@ -232,7 +232,7 @@ UUI.VALID_FORM = CLASS({
 			// f.
 			f = function(node) {
 
-				EACH(node.getChilds(), function(child) {
+				EACH(node.getChildren(), function(child) {
 
 					var
 					// name
@@ -265,7 +265,7 @@ UUI.VALID_FORM = CLASS({
 
 							(child.getParent().getParent().isValidWrapper === true ? child.getParent().getParent() : (child.getParent().isValidWrapper === true ? child.getParent() : child)).after( errorMsgP = P({
 								style : errorMsgStyle,
-								childs : [errorMsg]
+								children : [errorMsg]
 							}));
 
 							REMOVE_AT({
@@ -299,7 +299,7 @@ UUI.VALID_FORM = CLASS({
 			// f.
 			f = function(node) {
 
-				EACH(node.getChilds(), function(child) {
+				EACH(node.getChildren(), function(child) {
 
 					var
 					// name

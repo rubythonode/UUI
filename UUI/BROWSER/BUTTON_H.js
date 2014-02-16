@@ -95,8 +95,8 @@ UUI.BUTTON_H = CLASS({
 		// remove.
 		remove,
 
-		// remove all childs.
-		removeAllChilds,
+		// remove all children.
+		removeAllChildren,
 
 		// get parent.
 		getParent,
@@ -104,8 +104,8 @@ UUI.BUTTON_H = CLASS({
 		// set parent.
 		setParent,
 
-		// get childs.
-		getChilds,
+		// get children.
+		getChildren,
 
 		// add style.
 		addStyle,
@@ -132,12 +132,12 @@ UUI.BUTTON_H = CLASS({
 			},
 			href : href,
 			target : target,
-			childs : [ titleDom = DIV({
+			children : [ titleDom = DIV({
 				style : {
 					flt : 'left'
 				},
-				childs : [ span = SPAN({
-					childs : [title === undefined ? '' : title]
+				children : [ span = SPAN({
+					children : [title === undefined ? '' : title]
 				})]
 			}), CLEAR_BOTH()]
 		});
@@ -196,7 +196,7 @@ UUI.BUTTON_H = CLASS({
 		}
 
 		self.setTitle = setTitle = function(title) {
-			span.removeAllChilds();
+			span.removeAllChildren();
 			span.append(title);
 		};
 
@@ -268,8 +268,8 @@ UUI.BUTTON_H = CLASS({
 			a.remove();
 		};
 
-		self.removeAllChilds = removeAllChilds = function() {
-			a.removeAllChilds();
+		self.removeAllChildren = removeAllChildren = function() {
+			a.removeAllChildren();
 		};
 
 		self.getParent = getParent = function() {
@@ -282,8 +282,8 @@ UUI.BUTTON_H = CLASS({
 			a.setParent(parent);
 		};
 
-		self.getChilds = getChilds = function() {
-			return a.getChilds();
+		self.getChildren = getChildren = function() {
+			return a.getChildren();
 		};
 
 		self.addStyle = addStyle = function(style) {

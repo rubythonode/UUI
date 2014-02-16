@@ -5,7 +5,7 @@ UUI.MODAL = CLASS({
 
 	init : function(cls, inner, self, params) {'use strict';
 		//OPTIONAL: params
-		//OPTIONAL: params.childs
+		//OPTIONAL: params.children
 		//OPTIONAL: params.wrapperStyle
 		//OPTIONAL: params.contentStyle
 		//OPTIONAL: params.xStyle
@@ -14,8 +14,8 @@ UUI.MODAL = CLASS({
 		//OPTIONAL: params.onClose
 
 		var
-		// childs
-		childs = params === undefined ? undefined : params.childs,
+		// children
+		children = params === undefined ? undefined : params.children,
 
 		// wrapper style
 		wrapperStyle = params === undefined ? undefined : params.wrapperStyle,
@@ -71,11 +71,11 @@ UUI.MODAL = CLASS({
 		// remove.
 		remove,
 
-		// remove all childs.
-		removeAllChilds,
+		// remove all children.
+		removeAllChildren,
 
-		// get childs.
-		getChilds,
+		// get children.
+		getChildren,
 
 		// add wrapper style.
 		addWrapperStyle,
@@ -90,7 +90,7 @@ UUI.MODAL = CLASS({
 		}
 
 		wrapper = DIV({
-			childs : [ content = DIV(), isCannotClose === true ? '' : UUI.IMG_BUTTON({
+			children : [ content = DIV(), isCannotClose === true ? '' : UUI.IMG_BUTTON({
 				style : COMBINE_DATA({
 					origin : {
 						position : 'absolute'
@@ -141,8 +141,8 @@ UUI.MODAL = CLASS({
 				top : top < 0 ? 0 : top
 			});
 
-			find = function(childs) {
-				EACH(childs, function(child) {
+			find = function(children) {
+				EACH(children, function(child) {
 
 					if (child.type === IMG) {
 						EVENT({
@@ -153,13 +153,13 @@ UUI.MODAL = CLASS({
 						});
 					}
 
-					if (child.getChilds !== undefined) {
-						find(child.getChilds());
+					if (child.getChildren !== undefined) {
+						find(child.getChildren());
 					}
 				});
 			};
 
-			find(wrapper.getChilds());
+			find(wrapper.getChildren());
 		});
 
 		wrapper.addAfterShowProc(moveToCenter);
@@ -203,8 +203,8 @@ UUI.MODAL = CLASS({
 			moveToCenter();
 		};
 
-		if (childs !== undefined) {
-			EACH(childs, function(child, i) {
+		if (children !== undefined) {
+			EACH(children, function(child, i) {
 				append(child);
 			});
 		}
@@ -234,12 +234,12 @@ UUI.MODAL = CLASS({
 			wrapper.remove();
 		};
 
-		self.removeAllChilds = removeAllChilds = function() {
-			wrapper.removeAllChilds();
+		self.removeAllChildren = removeAllChildren = function() {
+			wrapper.removeAllChildren();
 		};
 
-		self.getChilds = getChilds = function() {
-			return wrapper.getChilds();
+		self.getChildren = getChildren = function() {
+			return wrapper.getChildren();
 		};
 
 		self.addWrapperStyle = addWrapperStyle = function(style) {

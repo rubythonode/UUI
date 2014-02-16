@@ -74,8 +74,8 @@ UUI.FULL_TEXTAREA = CLASS({
 		// remove.
 		remove,
 
-		// remove all childs.
-		removeAllChilds,
+		// remove all children.
+		removeAllChildren,
 
 		// get parent.
 		getParent,
@@ -83,8 +83,8 @@ UUI.FULL_TEXTAREA = CLASS({
 		// set parent.
 		setParent,
 
-		// get childs.
-		getChilds,
+		// get children.
+		getChildren,
 
 		// get name.
 		getName,
@@ -129,7 +129,7 @@ UUI.FULL_TEXTAREA = CLASS({
 				position : 'relative',
 				height : 100
 			},
-			childs : [ textarea = TEXTAREA({
+			children : [ textarea = TEXTAREA({
 				style : {
 					width : '100%',
 					height : '100%',
@@ -213,8 +213,8 @@ UUI.FULL_TEXTAREA = CLASS({
 			wrapper.remove();
 		};
 
-		self.removeAllChilds = removeAllChilds = function() {
-			wrapper.removeAllChilds();
+		self.removeAllChildren = removeAllChildren = function() {
+			wrapper.removeAllChildren();
 		};
 
 		self.getParent = getParent = function() {
@@ -227,8 +227,8 @@ UUI.FULL_TEXTAREA = CLASS({
 			wrapper.setParent(parent);
 		};
 
-		self.getChilds = getChilds = function() {
-			return wrapper.getChilds();
+		self.getChildren = getChildren = function() {
+			return wrapper.getChildren();
 		};
 
 		self.getName = getName = function() {
