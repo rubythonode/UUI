@@ -243,16 +243,28 @@ global.PACKER = function() {'use strict';
 		sqwish = require(rootPath + '/UPPERCASE/SERVER/node_modules/sqwish');
 
 		// minify browser script.
-		browserScript = uglifyJS.parse(browserScript).print_to_string();
+		browserScript = uglifyJS.minify(browserScript, {
+			fromString : true,
+			mangle : true
+		}).code;
 
 		// minify secured browser script.
-		securedBrowserScript = uglifyJS.parse(securedBrowserScript).print_to_string();
+		securedBrowserScript = uglifyJS.minify(securedBrowserScript, {
+			fromString : true,
+			mangle : true
+		}).code;
 
 		// minify common script.
-		commonScript = uglifyJS.parse(commonScript).print_to_string();
+		commonScript = uglifyJS.minify(commonScript, {
+			fromString : true,
+			mangle : true
+		}).code;
 
 		// minify server script.
-		serverScript = uglifyJS.parse(serverScript).print_to_string();
+		serverScript = uglifyJS.minify(serverScript, {
+			fromString : true,
+			mangle : true
+		}).code;
 
 		// minify css.
 		css = sqwish.minify(css);
