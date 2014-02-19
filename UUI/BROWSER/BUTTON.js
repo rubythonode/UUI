@@ -50,8 +50,8 @@ UUI.BUTTON = CLASS({
 		// a
 		a,
 
-		// span
-		span,
+		// title dom
+		titleDom,
 
 		// set title.
 		setTitle,
@@ -130,10 +130,8 @@ UUI.BUTTON = CLASS({
 		});
 
 		if (title !== undefined) {
-			a.prepend(DIV({
-				children : [ span = SPAN({
-					children : [title === undefined ? '' : title]
-				})]
+			a.prepend( titleDom = DIV({
+				children : [title === undefined ? '' : title]
 			}));
 		}
 
@@ -174,8 +172,8 @@ UUI.BUTTON = CLASS({
 		}
 
 		self.setTitle = setTitle = function(title) {
-			span.removeAllChildren();
-			span.append(title);
+			titleDom.removeAllChildren();
+			titleDom.append(title);
 		};
 
 		self.getImg = getImg = function() {

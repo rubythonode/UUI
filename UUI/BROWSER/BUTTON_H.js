@@ -50,8 +50,8 @@ UUI.BUTTON_H = CLASS({
 		// a
 		a,
 
-		// span
-		span,
+		// title dom
+		titleDom,
 
 		// evt
 		evt,
@@ -136,9 +136,7 @@ UUI.BUTTON_H = CLASS({
 				style : {
 					flt : 'left'
 				},
-				children : [ span = SPAN({
-					children : [title === undefined ? '' : title]
-				})]
+				children : [title === undefined ? '' : title]
 			}), CLEAR_BOTH()]
 		});
 
@@ -196,8 +194,8 @@ UUI.BUTTON_H = CLASS({
 		}
 
 		self.setTitle = setTitle = function(title) {
-			span.removeAllChildren();
-			span.append(title);
+			titleDom.removeAllChildren();
+			titleDom.append(title);
 		};
 
 		self.getImg = getImg = function() {
