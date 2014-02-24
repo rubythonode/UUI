@@ -11,6 +11,8 @@ UUI.FULL_SUBMIT = CLASS({
 		//OPTIONAL: params
 		//OPTIONAL: params.style
 		//OPTIONAL: params.value
+		//OPTIONAL: params.onMouseover
+		//OPTIONAL: params.onMouseout
 
 		var
 		// style
@@ -18,6 +20,12 @@ UUI.FULL_SUBMIT = CLASS({
 
 		// value
 		value = params === undefined ? undefined : params.value,
+
+		// on mouseover
+		onMouseover = params === undefined ? undefined : params.onMouseover,
+
+		// on mouseout
+		onMouseout = params === undefined ? undefined : params.onMouseout,
 
 		// input
 		input,
@@ -88,6 +96,24 @@ UUI.FULL_SUBMIT = CLASS({
 
 		if (value !== undefined) {
 			input.setValue(value);
+		}
+
+		if (onMouseover !== undefined) {
+			EVENT({
+				node : input,
+				name : 'mouseover'
+			}, function(e) {
+				onMouseover(e, self);
+			});
+		}
+
+		if (onMouseout !== undefined) {
+			EVENT({
+				node : input,
+				name : 'mouseout'
+			}, function(e) {
+				onMouseout(e, self);
+			});
 		}
 
 		self.getDom = getDom = function() {
