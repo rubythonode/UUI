@@ -165,7 +165,6 @@ UUI.FULL_INPUT = CLASS({
 				children : [ input = INPUT({
 					style : {
 						width : '100%',
-						backgroundColor : 'transparent',
 						border : 'none'
 					},
 					name : name,

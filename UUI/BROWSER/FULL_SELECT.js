@@ -128,7 +128,6 @@ UUI.FULL_SELECT = CLASS({
 			children : [ _select = SELECT({
 				style : {
 					width : '100%',
-					backgroundColor : 'transparent',
 					border : 'none'
 				},
 				name : name
