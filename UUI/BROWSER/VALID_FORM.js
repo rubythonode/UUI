@@ -31,6 +31,9 @@ UUI.VALID_FORM = CLASS({
 		// error msg style
 		errorMsgStyle = params === undefined ? undefined : params.errorMsgStyle,
 
+		// delays
+		delays = [],
+
 		// form
 		form,
 
@@ -107,6 +110,12 @@ UUI.VALID_FORM = CLASS({
 		checkIsShow;
 
 		form = FORM();
+
+		form.addAfterRemoveProc(function() {
+			EACH(delays, function(delay) {
+				delay.remove();
+			});
+		});
 
 		self.getDom = getDom = function() {
 			return form;
@@ -273,9 +282,14 @@ UUI.VALID_FORM = CLASS({
 								key : name
 							});
 
-							DELAY(2, function() {
+							delays.push(DELAY(2, function(delay) {
 								errorMsgP.remove();
-							});
+
+								REMOVE({
+									data : delays,
+									value : delay
+								});
+							}));
 						}
 					}
 
