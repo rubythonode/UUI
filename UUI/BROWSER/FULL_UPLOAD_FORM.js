@@ -204,21 +204,21 @@ UUI.FULL_UPLOAD_FORM = CLASS({
 			// frame
 			frame = global['__UPLOAD_FORM_' + self.id],
 
-			// file datas
-			fileDatas = frame !== undefined ? frame.fileDatas : undefined,
+			// file data set
+			fileDataSet = frame !== undefined ? frame.fileDataSet : undefined,
 
 			// error code
 			errorCode = frame !== undefined ? frame.errorCode : undefined;
 
-			if (fileDatas !== undefined || errorCode !== undefined) {
+			if (fileDataSet !== undefined || errorCode !== undefined) {
 
-				EACH(fileDatas, function(fileData, i) {
-					fileDatas[i] = UNPACK_DATA(fileData);
+				EACH(fileDataSet, function(fileData, i) {
+					fileDataSet[i] = UNPACK_DATA(fileData);
 				});
 
 				input.setValue('');
 
-				afterUpload(fileDatas, errorCode);
+				afterUpload(fileDataSet, errorCode);
 			}
 
 			uploading.hide();
