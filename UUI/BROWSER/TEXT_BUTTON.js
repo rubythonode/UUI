@@ -114,37 +114,13 @@ UUI.TEXT_BUTTON = CLASS({
 			},
 			href : href,
 			target : target,
+			onTap : onTap,
+			onMouseover : onMouseover,
+			onMouseout : onMouseout,
 			children : [ span = SPAN({
 				children : [title === undefined ? '' : title]
 			})]
 		});
-
-		if (onTap !== undefined) {
-			EVENT({
-				node : a,
-				name : 'tap'
-			}, function(e) {
-				onTap(e, self);
-			});
-		}
-
-		if (onMouseover !== undefined) {
-			EVENT({
-				node : a,
-				name : 'mouseover'
-			}, function(e) {
-				onMouseover(e, self);
-			});
-		}
-
-		if (onMouseout !== undefined) {
-			EVENT({
-				node : a,
-				name : 'mouseout'
-			}, function(e) {
-				onMouseout(e, self);
-			});
-		}
 
 		self.setTitle = setTitle = function(title) {
 			span.removeAllChildren();
@@ -256,7 +232,7 @@ UUI.TEXT_BUTTON = CLASS({
 		};
 
 		self.tap = tap = function() {
-			onTap();
+			a.tap();
 		};
 	}
 });

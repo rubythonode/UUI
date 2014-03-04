@@ -16,6 +16,8 @@ UUI.FULL_INPUT = CLASS({
 		//OPTIONAL: params.wrapperStyle
 		//OPTIONAL: params.inputStyle
 		//OPTIONAL: params.onChange
+		//OPTIONAL: params.onKeydown
+		//OPTIONAL: params.onKeyup
 
 		var
 		// name
@@ -38,6 +40,12 @@ UUI.FULL_INPUT = CLASS({
 
 		// on change.
 		onChange = params.onChange,
+
+		// on keydown.
+		onKeydown = params.onKeydown,
+
+		// on keyup.
+		onKeyup = params.onKeyup,
 
 		// keydown delay
 		keydownDelay,
@@ -140,9 +148,6 @@ UUI.FULL_INPUT = CLASS({
 		// add input style.
 		addInputStyle,
 
-		// add change value proc.
-		addChangeValueProc,
-
 		// show.
 		show,
 
@@ -170,7 +175,14 @@ UUI.FULL_INPUT = CLASS({
 					name : name,
 					type : type,
 					value : value,
-					onChange : replacePlaceholderButton
+					onChange : function(e, input) {
+
+						replacePlaceholderButton();
+
+						onChange(e, input);
+					},
+					onKeydown : onKeydown,
+					onKeyup : onKeyup
 				}), placeholderButton = UUI.TEXT_BUTTON({
 					style : placeholderStyle,
 					title : placeholder,
@@ -246,10 +258,6 @@ UUI.FULL_INPUT = CLASS({
 			if (keydownDelay !== undefined) {
 				keydownDelay.remove();
 			}
-		});
-
-		input.addChangeValueProc(function() {
-			replacePlaceholderButton();
 		});
 
 		// for VALID_FORM.
@@ -387,16 +395,6 @@ UUI.FULL_INPUT = CLASS({
 
 		if (inputStyle !== undefined) {
 			addInputStyle(inputStyle);
-		}
-
-		self.addChangeValueProc = addChangeValueProc = function(proc) {
-			//REQUIRED: proc
-
-			input.addChangeValueProc(proc);
-		};
-
-		if (onChange !== undefined) {
-			addChangeValueProc(onChange);
 		}
 
 		self.show = show = function() {

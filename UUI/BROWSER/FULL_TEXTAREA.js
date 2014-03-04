@@ -15,6 +15,8 @@ UUI.FULL_TEXTAREA = CLASS({
 		//OPTIONAL: params.wrapperStyle
 		//OPTIONAL: params.textareaStyle
 		//OPTIONAL: params.onChange
+		//OPTIONAL: params.onKeydown
+		//OPTIONAL: params.onKeyup
 
 		var
 		// name
@@ -34,6 +36,12 @@ UUI.FULL_TEXTAREA = CLASS({
 
 		// on change.
 		onChange = params.onChange,
+
+		// on keydown.
+		onKeydown = params.onKeydown,
+
+		// on keyup.
+		onKeyup = params.onKeyup,
 
 		// wrapper
 		wrapper,
@@ -110,9 +118,6 @@ UUI.FULL_TEXTAREA = CLASS({
 		// add input style.
 		addTextareaStyle,
 
-		// add change value proc.
-		addChangeValueProc,
-
 		// show.
 		show,
 
@@ -138,6 +143,9 @@ UUI.FULL_TEXTAREA = CLASS({
 				},
 				name : name,
 				placeholder : placeholder,
+				onChange : onChange,
+				onKeydown : onKeydown,
+				onKeyup : onKeyup,
 				value : value
 			})]
 		});
@@ -275,16 +283,6 @@ UUI.FULL_TEXTAREA = CLASS({
 
 		if (textareaStyle !== undefined) {
 			addTextareaStyle(textareaStyle);
-		}
-
-		self.addChangeValueProc = addChangeValueProc = function(proc) {
-			//REQUIRED: proc
-
-			textarea.addChangeValueProc(proc);
-		};
-
-		if (onChange !== undefined) {
-			addChangeValueProc(onChange);
 		}
 
 		self.show = show = function() {

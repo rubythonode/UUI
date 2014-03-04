@@ -111,9 +111,6 @@ UUI.FULL_CHECKBOX = CLASS({
 		// add input style.
 		addInputStyle,
 
-		// add change value proc.
-		addChangeValueProc,
-
 		// show.
 		show,
 
@@ -140,6 +137,7 @@ UUI.FULL_CHECKBOX = CLASS({
 				},
 				name : name,
 				type : 'checkbox',
+				onChange : onChange,
 				value : value
 			}), labelDom = SPAN({
 				style : {
@@ -280,16 +278,6 @@ UUI.FULL_CHECKBOX = CLASS({
 
 		if (inputStyle !== undefined) {
 			addInputStyle(inputStyle);
-		}
-
-		self.addChangeValueProc = addChangeValueProc = function(proc) {
-			//REQUIRED: proc
-
-			input.addChangeValueProc(proc);
-		};
-
-		if (onChange !== undefined) {
-			addChangeValueProc(onChange);
 		}
 
 		self.show = show = function() {

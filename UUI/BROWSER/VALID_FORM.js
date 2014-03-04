@@ -85,9 +85,6 @@ UUI.VALID_FORM = CLASS({
 		// set data.
 		setData,
 
-		// add submit proc.
-		addSubmitProc,
-
 		// submit.
 		submit,
 
@@ -109,7 +106,9 @@ UUI.VALID_FORM = CLASS({
 		// check is show.
 		checkIsShow;
 
-		form = FORM();
+		form = FORM({
+			onSubmit : onSubmit
+		});
 
 		form.addAfterRemoveProc(function() {
 			EACH(delays, function(delay) {
@@ -214,18 +213,6 @@ UUI.VALID_FORM = CLASS({
 
 			return form.setData(data);
 		};
-
-		self.addSubmitProc = addSubmitProc = function(func) {
-			//REQUIRED: func
-
-			form.addSubmitProc(function(e) {
-				func(e, self);
-			});
-		};
-
-		if (onSubmit !== undefined) {
-			addSubmitProc(onSubmit);
-		}
 
 		self.submit = submit = function() {
 			form.submit();

@@ -126,7 +126,10 @@ UUI.BUTTON = CLASS({
 				userSelect : 'none'
 			},
 			href : href,
-			target : target
+			target : target,
+			onTap : onTap,
+			onMouseover : onMouseover,
+			onMouseout : onMouseout
 		});
 
 		if (title !== undefined) {
@@ -142,33 +145,6 @@ UUI.BUTTON = CLASS({
 				},
 				children : [img]
 			}));
-		}
-
-		if (onTap !== undefined) {
-			EVENT({
-				node : a,
-				name : 'tap'
-			}, function(e) {
-				onTap(e, self);
-			});
-		}
-
-		if (onMouseover !== undefined) {
-			EVENT({
-				node : a,
-				name : 'mouseover'
-			}, function(e) {
-				onMouseover(e, self);
-			});
-		}
-
-		if (onMouseout !== undefined) {
-			EVENT({
-				node : a,
-				name : 'mouseout'
-			}, function(e) {
-				onMouseout(e, self);
-			});
 		}
 
 		self.setTitle = setTitle = function(title) {

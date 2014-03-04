@@ -107,9 +107,6 @@ UUI.FULL_SELECT = CLASS({
 		// add option.
 		addOption,
 
-		// add change value proc.
-		addChangeValueProc,
-
 		// show.
 		show,
 
@@ -130,6 +127,7 @@ UUI.FULL_SELECT = CLASS({
 					width : '100%',
 					border : 'none'
 				},
+				onChange : onChange,
 				name : name
 			})]
 		});
@@ -275,16 +273,6 @@ UUI.FULL_SELECT = CLASS({
 			EACH(options, function(option) {
 				addOption(option);
 			});
-		}
-
-		self.addChangeValueProc = addChangeValueProc = function(proc) {
-			//REQUIRED: proc
-
-			_select.addChangeValueProc(proc);
-		};
-
-		if (onChange !== undefined) {
-			addChangeValueProc(onChange);
 		}
 
 		self.show = show = function() {

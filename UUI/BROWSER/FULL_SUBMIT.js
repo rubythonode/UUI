@@ -91,29 +91,13 @@ UUI.FULL_SUBMIT = CLASS({
 				width : '100%',
 				padding : '10px 0',
 				cursor : 'pointer'
-			}
+			},
+			onMouseover : onMouseover,
+			onMouseout : onMouseout
 		});
 
 		if (value !== undefined) {
 			input.setValue(value);
-		}
-
-		if (onMouseover !== undefined) {
-			EVENT({
-				node : input,
-				name : 'mouseover'
-			}, function(e) {
-				onMouseover(e, self);
-			});
-		}
-
-		if (onMouseout !== undefined) {
-			EVENT({
-				node : input,
-				name : 'mouseout'
-			}, function(e) {
-				onMouseout(e, self);
-			});
 		}
 
 		self.getDom = getDom = function() {

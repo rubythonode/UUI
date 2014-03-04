@@ -111,35 +111,11 @@ UUI.IMG_BUTTON = CLASS({
 			},
 			href : href,
 			target : target,
+			onTap : onTap,
+			onMouseover : onMouseover,
+			onMouseout : onMouseout,
 			children : [img]
 		});
-
-		if (onTap !== undefined) {
-			EVENT({
-				node : a,
-				name : 'tap'
-			}, function(e) {
-				onTap(e, self);
-			});
-		}
-
-		if (onMouseover !== undefined) {
-			EVENT({
-				node : a,
-				name : 'mouseover'
-			}, function(e) {
-				onMouseover(e, self);
-			});
-		}
-
-		if (onMouseout !== undefined) {
-			EVENT({
-				node : a,
-				name : 'mouseout'
-			}, function(e) {
-				onMouseout(e, self);
-			});
-		}
 
 		self.getImg = getImg = function() {
 			return img;
@@ -250,7 +226,7 @@ UUI.IMG_BUTTON = CLASS({
 		};
 
 		self.tap = tap = function() {
-			onTap();
+			a.tap();
 		};
 	}
 });

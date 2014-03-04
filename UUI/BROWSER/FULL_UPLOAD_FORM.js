@@ -120,9 +120,6 @@ UUI.FULL_UPLOAD_FORM = CLASS({
 		// add uplading style.
 		addUploadingStyle,
 
-		// add change value proc.
-		addChangeValueProc,
-
 		// show.
 		show,
 
@@ -159,7 +156,8 @@ UUI.FULL_UPLOAD_FORM = CLASS({
 						height : '100%',
 						color : '#000',
 						border : 'none'
-					}
+					},
+					onChange : onChange
 				}), INPUT({
 					type : 'submit',
 					style : {
@@ -368,16 +366,6 @@ UUI.FULL_UPLOAD_FORM = CLASS({
 
 		if (uploadingStyle !== undefined) {
 			addUploadingStyle(uploadingStyle);
-		}
-
-		self.addChangeValueProc = addChangeValueProc = function(proc) {
-			//REQUIRED: proc
-
-			input.addChangeValueProc(proc);
-		};
-
-		if (onChange !== undefined) {
-			addChangeValueProc(onChange);
 		}
 
 		self.show = show = function() {
