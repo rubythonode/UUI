@@ -127,7 +127,11 @@ UUI.FULL_SELECT = CLASS({
 					width : '100%',
 					border : 'none'
 				},
-				onChange : onChange,
+				onChange : function(e) {
+					if (onChange !== undefined) {
+						onChange(e, self);
+					}
+				},
 				name : name
 			})]
 		});

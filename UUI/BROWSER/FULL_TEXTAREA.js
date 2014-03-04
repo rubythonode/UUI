@@ -143,9 +143,21 @@ UUI.FULL_TEXTAREA = CLASS({
 				},
 				name : name,
 				placeholder : placeholder,
-				onChange : onChange,
-				onKeydown : onKeydown,
-				onKeyup : onKeyup,
+				onChange : function(e) {
+					if (onChange !== undefined) {
+						onChange(e, self);
+					}
+				},
+				onKeydown : function(e) {
+					if (onKeydown !== undefined) {
+						onKeydown(e, self);
+					}
+				},
+				onKeyup : function(e) {
+					if (onKeyup !== undefined) {
+						onKeyup(e, self);
+					}
+				},
 				value : value
 			})]
 		});

@@ -107,7 +107,11 @@ UUI.VALID_FORM = CLASS({
 		checkIsShow;
 
 		form = FORM({
-			onSubmit : onSubmit
+			onSubmit : function(e) {
+				if (onSubmit !== undefined) {
+					onSubmit(e, self);
+				}
+			}
 		});
 
 		form.addAfterRemoveProc(function() {

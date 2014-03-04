@@ -157,7 +157,11 @@ UUI.FULL_UPLOAD_FORM = CLASS({
 						color : '#000',
 						border : 'none'
 					},
-					onChange : onChange
+					onChange : function(e) {
+						if (onChange !== undefined) {
+							onChange(e, self);
+						}
+					}
 				}), INPUT({
 					type : 'submit',
 					style : {

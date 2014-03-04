@@ -92,8 +92,16 @@ UUI.FULL_SUBMIT = CLASS({
 				padding : '10px 0',
 				cursor : 'pointer'
 			},
-			onMouseover : onMouseover,
-			onMouseout : onMouseout
+			onMouseover : function(e) {
+				if (onMouseover !== undefined) {
+					onMouseover(e, self);
+				}
+			},
+			onMouseout : function(e) {
+				if (onMouseout !== undefined) {
+					onMouseout(e, self);
+				}
+			}
 		});
 
 		if (value !== undefined) {

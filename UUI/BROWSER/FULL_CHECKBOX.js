@@ -137,7 +137,11 @@ UUI.FULL_CHECKBOX = CLASS({
 				},
 				name : name,
 				type : 'checkbox',
-				onChange : onChange,
+				onChange : function(e) {
+					if (onChange !== undefined) {
+						onChange(e, self);
+					}
+				},
 				value : value
 			}), labelDom = SPAN({
 				style : {

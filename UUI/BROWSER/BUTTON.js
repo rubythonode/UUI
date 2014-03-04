@@ -127,9 +127,21 @@ UUI.BUTTON = CLASS({
 			},
 			href : href,
 			target : target,
-			onTap : onTap,
-			onMouseover : onMouseover,
-			onMouseout : onMouseout
+			onTap : function(e) {
+				if (onTap !== undefined) {
+					onTap(e, self);
+				}
+			},
+			onMouseover : function(e) {
+				if (onMouseover !== undefined) {
+					onMouseover(e, self);
+				}
+			},
+			onMouseout : function(e) {
+				if (onMouseout !== undefined) {
+					onMouseout(e, self);
+				}
+			}
 		});
 
 		if (title !== undefined) {

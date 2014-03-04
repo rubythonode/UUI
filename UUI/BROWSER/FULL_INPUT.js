@@ -175,14 +175,24 @@ UUI.FULL_INPUT = CLASS({
 					name : name,
 					type : type,
 					value : value,
-					onChange : function(e, input) {
+					onChange : function(e) {
 
 						replacePlaceholderButton();
 
-						onChange(e, input);
+						if (onChange !== undefined) {
+							onChange(e, self);
+						}
 					},
-					onKeydown : onKeydown,
-					onKeyup : onKeyup
+					onKeydown : function(e) {
+						if (onKeydown !== undefined) {
+							onKeydown(e, self);
+						}
+					},
+					onKeyup : function(e) {
+						if (onKeyup !== undefined) {
+							onKeyup(e, self);
+						}
+					}
 				}), placeholderButton = UUI.TEXT_BUTTON({
 					style : placeholderStyle,
 					title : placeholder,
