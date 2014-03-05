@@ -12,6 +12,7 @@ UUI.LIST = CLASS({
 		//OPTIONAL: params.children
 		//OPTIONAL: params.style
 		//OPTIONAL: params.items
+		//OPTIONAL: params.isNeedClearBoth
 
 		var
 		// children
@@ -23,6 +24,9 @@ UUI.LIST = CLASS({
 		// items
 		items = params === undefined ? undefined : params.items,
 
+		// is need clear both
+		isNeedClearBoth = params === undefined ? undefined : params.isNeedClearBoth,
+
 		// item stack
 		itemStack = [],
 
@@ -31,6 +35,9 @@ UUI.LIST = CLASS({
 
 		// ul
 		ul,
+
+		// clear both
+		clearBoth,
 
 		// get dom.
 		getDom,
@@ -238,6 +245,15 @@ UUI.LIST = CLASS({
 			}
 
 			items[key] = item;
+
+			if (isNeedClearBoth === true) {
+
+				if (clearBoth !== undefined) {
+					clearBoth.remove();
+				}
+
+				clearBoth = CLEAR_BOTH().appendTo(ul);
+			}
 		};
 
 		EACH(items, function(item, key) {
