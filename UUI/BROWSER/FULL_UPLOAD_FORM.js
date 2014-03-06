@@ -230,8 +230,11 @@ UUI.FULL_UPLOAD_FORM = CLASS({
 			node : input,
 			name : 'change'
 		}, function(e) {
-			uploading.show();
-			form.submit(true);
+
+			if (input.getValue() !== '') {
+				uploading.show();
+				form.submit(true);
+			}
 		});
 
 		self.getDom = getDom = function() {
