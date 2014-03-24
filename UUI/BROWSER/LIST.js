@@ -21,7 +21,7 @@ UUI.LIST = CLASS({
 		// style
 		style = params === undefined ? undefined : params.style,
 
-		// is need clear both
+		// is requiring clear both
 		isRequiringClearBoth = params === undefined ? undefined : params.isRequiringClearBoth,
 
 		// item stack
