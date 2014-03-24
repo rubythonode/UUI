@@ -12,7 +12,7 @@ UUI.LIST = CLASS({
 		//OPTIONAL: params.children
 		//OPTIONAL: params.style
 		//OPTIONAL: params.items
-		//OPTIONAL: params.isNeedClearBoth
+		//OPTIONAL: params.isRequiringClearBoth
 
 		var
 		// children
@@ -22,7 +22,7 @@ UUI.LIST = CLASS({
 		style = params === undefined ? undefined : params.style,
 
 		// is need clear both
-		isNeedClearBoth = params === undefined ? undefined : params.isNeedClearBoth,
+		isRequiringClearBoth = params === undefined ? undefined : params.isRequiringClearBoth,
 
 		// item stack
 		itemStack = [],
@@ -246,7 +246,7 @@ UUI.LIST = CLASS({
 
 			items[key] = item;
 
-			if (isNeedClearBoth === true) {
+			if (isRequiringClearBoth === true) {
 
 				if (clearBoth !== undefined) {
 					clearBoth.remove();
