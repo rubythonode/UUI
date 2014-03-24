@@ -216,7 +216,7 @@ UUI.FULL_INPUT = CLASS({
 			fontSizeStr = input.getStyle('fontSize'),
 
 			// font size
-			fontSize = fontSizeStr === undefined ? 12 : parseInt(fontSizeStr, 10);
+			fontSize = fontSizeStr === undefined ? 12 : INTEGER(fontSizeStr);
 
 			if (input.getStyle('textAlign') === 'center') {
 
