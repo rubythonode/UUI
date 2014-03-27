@@ -184,11 +184,19 @@ UUI.FULL_INPUT = CLASS({
 						}
 					},
 					onKeydown : function(e) {
+
+						keydownDelay = DELAY(function() {
+							replacePlaceholderButton();
+						});
+
 						if (onKeydown !== undefined) {
 							onKeydown(e, self);
 						}
 					},
 					onKeyup : function(e) {
+
+						replacePlaceholderButton();
+
 						if (onKeyup !== undefined) {
 							onKeyup(e, self);
 						}
@@ -253,15 +261,6 @@ UUI.FULL_INPUT = CLASS({
 					textAlign : 'left'
 				});
 			}
-		});
-
-		EVENT({
-			node : input,
-			name : 'keydown'
-		}, function(e) {
-			keydownDelay = DELAY(function() {
-				replacePlaceholderButton();
-			});
 		});
 
 		wrapper.addAfterRemoveProc(function() {

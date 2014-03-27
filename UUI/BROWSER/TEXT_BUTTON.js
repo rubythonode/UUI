@@ -130,7 +130,7 @@ UUI.TEXT_BUTTON = CLASS({
 				}
 			},
 			children : [ span = SPAN({
-				children : [title === undefined ? '' : title]
+				children : [title === undefined ? (href === undefined ? '' : href) : title]
 			})]
 		});
 
