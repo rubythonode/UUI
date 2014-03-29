@@ -23,4 +23,4 @@ UPPERCASE User Interface BOX for web applications.
 
 DOCUMENT: http://UPPERCASE.IO/#UDOC/UUI
 
-CONTACT: contact@btncafe.com
+2014 ⓒ BTNcafe · http://www.btncafe.com · contact@btncafe.com
