@@ -81,7 +81,10 @@ UUI.MODAL = CLASS({
 		addWrapperStyle,
 
 		// add content style.
-		addContentStyle;
+		addContentStyle,
+
+		// close.
+		close;
 
 		if (xImg === undefined && isCannotClose !== true) {
 			xImg = IMG({
@@ -103,12 +106,7 @@ UUI.MODAL = CLASS({
 				}),
 				img : xImg,
 				onTap : function(e) {
-
-					remove();
-
-					if (onClose !== undefined) {
-						onClose();
-					}
+					close();
 				},
 				onMouseover : function() {
 					addWrapperStyle({
@@ -177,12 +175,7 @@ UUI.MODAL = CLASS({
 		}, function(e) {
 
 			if (e.getKeyCode() === 27 && isCannotClose !== true) {
-
-				remove();
-
-				if (onClose !== undefined) {
-					onClose();
-				}
+				close();
 			}
 		});
 
@@ -264,5 +257,15 @@ UUI.MODAL = CLASS({
 			addContentStyle(contentStyle);
 		}
 
+		self.close = close = function() {
+
+			if (onClose !== undefined) {
+				if (onClose() !== false) {
+					remove();
+				}
+			} else {
+				remove();
+			}
+		};
 	}
 });

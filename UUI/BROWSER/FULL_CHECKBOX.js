@@ -145,7 +145,8 @@ UUI.FULL_CHECKBOX = CLASS({
 				value : value
 			}), labelDom = SPAN({
 				style : {
-					flt : 'left'
+					flt : 'left',
+					cursor : 'pointer'
 				},
 				children : [label]
 			}), CLEAR_BOTH()]
