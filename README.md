@@ -1,6 +1,6 @@
 UUI
 ===
-UPPERCASE User Interface BOX for web applications.
+UPPERCASE.IO User Interface BOX for web applications.
 
 - BUTTON_H
 - BUTTON
