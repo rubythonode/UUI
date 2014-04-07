@@ -18,6 +18,7 @@ UUI.FULL_INPUT = CLASS({
 		//OPTIONAL: params.onChange
 		//OPTIONAL: params.onKeydown
 		//OPTIONAL: params.onKeyup
+		//OPTIONAL: params.isHidePlaceholder
 
 		var
 		// name
@@ -46,6 +47,9 @@ UUI.FULL_INPUT = CLASS({
 
 		// on keyup.
 		onKeyup = params.onKeyup,
+		
+		// is hide placeholder
+		isHidePlaceholder = params.isHidePlaceholder,
 
 		// keydown delay
 		keydownDelay,
@@ -232,6 +236,20 @@ UUI.FULL_INPUT = CLASS({
 					left : 0,
 					width : '100%',
 					textAlign : 'center'
+				});
+
+				if (value === '') {
+					placeholderButton.show();
+				} else {
+					placeholderButton.hide();
+				}
+
+			} else if ( isHidePlaceholder === true) {
+
+				placeholderButton.addStyle({
+					left : 0,
+					width : 'auto',
+					textAlign : 'left'
 				});
 
 				if (value === '') {
