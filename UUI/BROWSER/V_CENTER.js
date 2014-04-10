@@ -10,7 +10,8 @@ UUI.V_CENTER = CLASS({
 	init : function(cls, inner, self, params) {'use strict';
 		//OPTIONAL: params
 		//OPTIONAL: params.children
-		//OPTIONAL: params.style
+		//OPTIONAL: params.wrapperStyle
+		//OPTIONAL: params.contentStyle
 
 		var
 		// children
