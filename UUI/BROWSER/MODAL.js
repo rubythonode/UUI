@@ -260,7 +260,7 @@ UUI.MODAL = CLASS({
 		self.close = close = function() {
 
 			if (onClose !== undefined) {
-				if (onClose() !== false) {
+				if (onClose(self) !== false) {
 					remove();
 				}
 			} else {

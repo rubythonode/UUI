@@ -8,6 +8,7 @@ UUI.NOTICE = CLASS({
 		//OPTIONAL: params.wrapperStyle
 		//OPTIONAL: params.contentStyle
 		//OPTIONAL: params.isCannotClose
+		//OPTIONAL: params.onClose
 		//REQUIRED: params.msg
 
 		var
@@ -19,6 +20,9 @@ UUI.NOTICE = CLASS({
 
 		// is cannot close
 		isCannotClose = params.isCannotClose,
+
+		// on close
+		onClose = params.onClose,
 
 		// msg
 		msg = params.msg,
@@ -65,6 +69,7 @@ UUI.NOTICE = CLASS({
 			}),
 			contentStyle : contentStyle,
 			isCannotClose : true,
+			onClose : onClose,
 			children : [msg]
 		});
 
@@ -121,7 +126,9 @@ UUI.NOTICE = CLASS({
 		};
 
 		if (isCannotClose !== true) {
-			DELAY(2, remove);
+			DELAY(2, function() {
+				modal.close();
+			});
 		}
 
 	}
