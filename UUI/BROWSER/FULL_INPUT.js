@@ -47,7 +47,7 @@ UUI.FULL_INPUT = CLASS({
 
 		// on keyup.
 		onKeyup = params.onKeyup,
-		
+
 		// is hide placeholder
 		isHidePlaceholder = params.isHidePlaceholder,
 
@@ -168,13 +168,33 @@ UUI.FULL_INPUT = CLASS({
 			},
 			children : [DIV({
 				style : {
-					position : 'relative',
-					overflow : 'hidden'
+					position : 'relative'
 				},
-				children : [ input = INPUT({
+				children : [
+
+				// span
+				SPAN({
 					style : {
+						visibility : 'hidden'
+					},
+					children : ['.']
+				}),
+
+				// placeholder
+				placeholderButton = UUI.TEXT_BUTTON({
+					style : placeholderStyle,
+					title : placeholder
+				}),
+
+				// input
+				input = INPUT({
+					style : {
+						position : 'absolute',
+						left : 0,
+						top : 0,
 						width : '100%',
-						border : 'none'
+						border : 'none',
+						background : 'transparent'
 					},
 					name : name,
 					type : type,
@@ -204,12 +224,6 @@ UUI.FULL_INPUT = CLASS({
 						if (onKeyup !== undefined) {
 							onKeyup(e, self);
 						}
-					}
-				}), placeholderButton = UUI.TEXT_BUTTON({
-					style : placeholderStyle,
-					title : placeholder,
-					onTap : function() {
-						focus();
 					}
 				})]
 			})]
@@ -244,7 +258,7 @@ UUI.FULL_INPUT = CLASS({
 					placeholderButton.hide();
 				}
 
-			} else if ( isHidePlaceholder === true) {
+			} else if (isHidePlaceholder === true) {
 
 				placeholderButton.addStyle({
 					left : 0,
