@@ -142,6 +142,11 @@ UUI.FULL_CHECKBOX = CLASS({
 						onChange(e, self);
 					}
 				},
+				on : {
+					tap : function(e) {
+						e.stop();
+					}
+				},
 				value : value
 			}), labelDom = SPAN({
 				style : {
