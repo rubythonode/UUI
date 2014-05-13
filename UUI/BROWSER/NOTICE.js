@@ -8,7 +8,7 @@ UUI.NOTICE = CLASS({
 		//OPTIONAL: params.wrapperStyle
 		//OPTIONAL: params.contentStyle
 		//OPTIONAL: params.isCannotClose
-		//OPTIONAL: params.onClose
+		//OPTIONAL: params.on
 		//REQUIRED: params.msg
 
 		var
@@ -21,8 +21,8 @@ UUI.NOTICE = CLASS({
 		// is cannot close
 		isCannotClose = params.isCannotClose,
 
-		// on close
-		onClose = params.onClose,
+		// on
+		on = params.on,
 
 		// msg
 		msg = params.msg,
@@ -69,7 +69,7 @@ UUI.NOTICE = CLASS({
 			}),
 			contentStyle : contentStyle,
 			isCannotClose : true,
-			onClose : onClose,
+			on : on,
 			children : [msg]
 		});
 
@@ -130,6 +130,5 @@ UUI.NOTICE = CLASS({
 				modal.close();
 			});
 		}
-
 	}
 });

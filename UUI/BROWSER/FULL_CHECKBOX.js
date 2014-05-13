@@ -15,7 +15,7 @@ UUI.FULL_CHECKBOX = CLASS({
 		//OPTIONAL: params.children
 		//OPTIONAL: params.wrapperStyle
 		//OPTIONAL: params.inputStyle
-		//OPTIONAL: params.onChange
+		//OPTIONAL: params.on
 
 		var
 		// name
@@ -36,8 +36,8 @@ UUI.FULL_CHECKBOX = CLASS({
 		// input style
 		inputStyle = params.inputStyle,
 
-		// on change.
-		onChange = params.onChange,
+		// on
+		on = params.on,
 
 		// wrapper
 		wrapper,
@@ -120,6 +120,15 @@ UUI.FULL_CHECKBOX = CLASS({
 		// check is show.
 		checkIsShow;
 
+		if (on !== undefined) {
+
+			EACH(on, function(handler, name) {
+				on[name] = function(e) {
+					handler(e, self);
+				};
+			});
+		}
+
 		wrapper = DIV({
 			style : {
 				position : 'relative'
@@ -137,16 +146,14 @@ UUI.FULL_CHECKBOX = CLASS({
 				},
 				name : name,
 				type : 'checkbox',
-				onChange : function(e) {
-					if (onChange !== undefined) {
-						onChange(e, self);
-					}
-				},
-				on : {
-					tap : function(e) {
-						e.stop();
-					}
-				},
+				on : COMBINE_DATA({
+					origin : {
+						tap : function(e) {
+							e.stop();
+						}
+					},
+					extend : on !== undefined ? on : {}
+				}),
 				value : value
 			}), labelDom = SPAN({
 				style : {
@@ -162,90 +169,6 @@ UUI.FULL_CHECKBOX = CLASS({
 
 		self.getDom = getDom = function() {
 			return wrapper;
-		};
-
-		self.append = append = function(node) {
-			//REQUIRED: node
-
-			wrapper.append(node);
-		};
-
-		if (children !== undefined) {
-			EACH(children, function(child, i) {
-				labelDom.after(child);
-			});
-		}
-
-		self.appendTo = appendTo = function(node) {
-			//REQUIRED: node
-
-			node.append(wrapper);
-
-			return self;
-		};
-
-		self.prepend = prepend = function(node) {
-			//REQUIRED: node
-
-			wrapper.prepend(node);
-		};
-
-		self.prependTo = prependTo = function(node) {
-			//REQUIRED: node
-
-			node.prepend(wrapper);
-
-			return self;
-		};
-
-		self.after = after = function(node) {
-			//REQUIRED: node
-
-			wrapper.after(node);
-		};
-
-		self.insertAfter = insertAfter = function(node) {
-			//REQUIRED: node
-
-			node.after(wrapper);
-
-			return self;
-		};
-
-		self.before = before = function(node) {
-			//REQUIRED: node
-
-			wrapper.before(node);
-		};
-
-		self.insertBefore = insertBefore = function(node) {
-			//REQUIRED: node
-
-			node.before(wrapper);
-
-			return self;
-		};
-
-		self.remove = remove = function() {
-			wrapper.remove();
-		};
-
-		self.removeAllChildren = removeAllChildren = function() {
-			wrapper.removeAllChildren();
-		};
-
-		self.getParent = getParent = function() {
-			return wrapper.getParent();
-		};
-
-		self.setParent = setParent = function(parent) {
-			//REQUIRED: parent
-
-			wrapper.setParent(parent);
-		};
-
-		self.getChildren = getChildren = function() {
-			return wrapper.getChildren();
 		};
 
 		self.getName = getName = function() {
@@ -289,17 +212,5 @@ UUI.FULL_CHECKBOX = CLASS({
 		if (inputStyle !== undefined) {
 			addInputStyle(inputStyle);
 		}
-
-		self.show = show = function() {
-			wrapper.show();
-		};
-
-		self.hide = hide = function() {
-			wrapper.hide();
-		};
-
-		self.checkIsShow = checkIsShow = function() {
-			return wrapper.checkIsShow();
-		};
 	}
 });

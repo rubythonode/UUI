@@ -122,72 +122,14 @@ UUI.V_CENTER = CLASS({
 			});
 		}
 
-		self.appendTo = appendTo = function(node) {
-			//REQUIRED: node
-
-			node.append(wrapper);
-
-			return self;
-		};
-
 		self.prepend = prepend = function(node) {
 			//REQUIRED: node
 
 			content.prepend(node);
 		};
 
-		self.prependTo = prependTo = function(node) {
-			//REQUIRED: node
-
-			node.prepend(wrapper);
-
-			return self;
-		};
-
-		self.after = after = function(node) {
-			//REQUIRED: node
-
-			wrapper.after(node);
-		};
-
-		self.insertAfter = insertAfter = function(node) {
-			//REQUIRED: node
-
-			node.after(wrapper);
-
-			return self;
-		};
-
-		self.before = before = function(node) {
-			//REQUIRED: node
-
-			wrapper.before(node);
-		};
-
-		self.insertBefore = insertBefore = function(node) {
-			//REQUIRED: node
-
-			node.before(wrapper);
-
-			return self;
-		};
-
-		self.remove = remove = function() {
-			wrapper.remove();
-		};
-
 		self.removeAllChildren = removeAllChildren = function() {
 			content.removeAllChildren();
-		};
-
-		self.getParent = getParent = function() {
-			return wrapper.getParent();
-		};
-
-		self.setParent = setParent = function(parent) {
-			//REQUIRED: parent
-
-			wrapper.setParent(parent);
 		};
 
 		self.getChildren = getChildren = function() {
@@ -213,17 +155,5 @@ UUI.V_CENTER = CLASS({
 		if (contentStyle !== undefined) {
 			addContentStyle(contentStyle);
 		}
-
-		self.show = show = function() {
-			wrapper.show();
-		};
-
-		self.hide = hide = function() {
-			wrapper.hide();
-		};
-
-		self.checkIsShow = checkIsShow = function() {
-			return wrapper.checkIsShow();
-		};
 	}
 });

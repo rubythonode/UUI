@@ -9,16 +9,16 @@ UUI.TABLE = CLASS({
 
 	init : function(cls, inner, self, params) {'use strict';
 		//OPTIONAL: params
-		//OPTIONAL: params.children
 		//OPTIONAL: params.style
+		//OPTIONAL: params.children
 		//OPTIONAL: params.trs
 
 		var
-		// children
-		children = params === undefined ? undefined : params.children,
-
 		// style
 		style = params === undefined ? undefined : params.style,
+
+		// children
+		children = params === undefined ? undefined : params.children,
 
 		// trs
 		trs = params === undefined ? undefined : params.trs,
@@ -35,48 +35,6 @@ UUI.TABLE = CLASS({
 		// get dom.
 		getDom,
 
-		// append.
-		append,
-
-		// append to.
-		appendTo,
-
-		// prepend.
-		prepend,
-
-		// prepend to.
-		prependTo,
-
-		// after.
-		after,
-
-		// insert after.
-		insertAfter,
-
-		// before.
-		before,
-
-		// insert before.
-		insertBefore,
-
-		// remove.
-		remove,
-
-		// remove all children.
-		removeAllChildren,
-
-		// get parent.
-		getParent,
-
-		// set parent.
-		setParent,
-
-		// get children.
-		getChildren,
-
-		// add style.
-		addStyle,
-
 		// add tr.
 		addTR,
 
@@ -87,120 +45,20 @@ UUI.TABLE = CLASS({
 		addRemoveTRHandler,
 
 		// remove all trs.
-		removeAllTRs,
-
-		// show.
-		show,
-
-		// hide.
-		hide,
-
-		// check is show.
-		checkIsShow;
+		removeAllTRs;
 
 		if (trs === undefined) {
 			trs = {};
 		}
 
-		table = TABLE();
+		table = TABLE({
+			style : style,
+			chlidren : children
+		});
 
 		self.getDom = getDom = function() {
 			return table;
 		};
-
-		self.append = append = function(node) {
-			//REQUIRED: node
-
-			table.append(node);
-		};
-
-		if (children !== undefined) {
-			EACH(children, function(child, i) {
-				append(child);
-			});
-		}
-
-		self.appendTo = appendTo = function(node) {
-			//REQUIRED: node
-
-			node.append(table);
-
-			return self;
-		};
-
-		self.prepend = prepend = function(node) {
-			//REQUIRED: node
-
-			table.prepend(node);
-		};
-
-		self.prependTo = prependTo = function(node) {
-			//REQUIRED: node
-
-			node.prepend(table);
-
-			return self;
-		};
-
-		self.after = after = function(node) {
-			//REQUIRED: node
-
-			table.after(node);
-		};
-
-		self.insertAfter = insertAfter = function(node) {
-			//REQUIRED: node
-
-			node.after(table);
-
-			return self;
-		};
-
-		self.before = before = function(node) {
-			//REQUIRED: node
-
-			table.before(node);
-		};
-
-		self.insertBefore = insertBefore = function(node) {
-			//REQUIRED: node
-
-			node.before(table);
-
-			return self;
-		};
-
-		self.remove = remove = function() {
-			table.remove();
-		};
-
-		self.removeAllChildren = removeAllChildren = function() {
-			table.removeAllChildren();
-		};
-
-		self.getParent = getParent = function() {
-			return table.getParent();
-		};
-
-		self.setParent = setParent = function(parent) {
-			//REQUIRED: parent
-
-			table.setParent(parent);
-		};
-
-		self.getChildren = getChildren = function() {
-			return table.getChildren();
-		};
-
-		self.addStyle = addStyle = function(style) {
-			//REQUIRED: style
-
-			table.addStyle(style);
-		};
-
-		if (style !== undefined) {
-			addStyle(style);
-		}
 
 		self.addTR = addTR = function(params) {
 			//REQUIRED: params
@@ -311,18 +169,6 @@ UUI.TABLE = CLASS({
 			trs = {};
 			trStack = [];
 			removeTRHandlers = {};
-		};
-
-		self.show = show = function() {
-			table.show();
-		};
-
-		self.hide = hide = function() {
-			table.hide();
-		};
-
-		self.checkIsShow = checkIsShow = function() {
-			return table.checkIsShow();
 		};
 	}
 });

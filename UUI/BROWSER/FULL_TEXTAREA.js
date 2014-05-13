@@ -14,9 +14,7 @@ UUI.FULL_TEXTAREA = CLASS({
 		//OPTIONAL: params.value
 		//OPTIONAL: params.wrapperStyle
 		//OPTIONAL: params.textareaStyle
-		//OPTIONAL: params.onChange
-		//OPTIONAL: params.onKeydown
-		//OPTIONAL: params.onKeyup
+		//OPTIONAL: params.on
 
 		var
 		// name
@@ -34,14 +32,8 @@ UUI.FULL_TEXTAREA = CLASS({
 		// textarea style
 		textareaStyle = params.textareaStyle,
 
-		// on change.
-		onChange = params.onChange,
-
-		// on keydown.
-		onKeydown = params.onKeydown,
-
-		// on keyup.
-		onKeyup = params.onKeyup,
+		// on
+		on = params.on,
 
 		// wrapper
 		wrapper,
@@ -127,6 +119,15 @@ UUI.FULL_TEXTAREA = CLASS({
 		// check is show.
 		checkIsShow;
 
+		if (on !== undefined) {
+
+			EACH(on, function(handler, name) {
+				on[name] = function(e) {
+					handler(e, self);
+				};
+			});
+		}
+
 		wrapper = DIV({
 			style : {
 				padding : 5,
@@ -143,21 +144,7 @@ UUI.FULL_TEXTAREA = CLASS({
 				},
 				name : name,
 				placeholder : placeholder,
-				onChange : function(e) {
-					if (onChange !== undefined) {
-						onChange(e, self);
-					}
-				},
-				onKeydown : function(e) {
-					if (onKeydown !== undefined) {
-						onKeydown(e, self);
-					}
-				},
-				onKeyup : function(e) {
-					if (onKeyup !== undefined) {
-						onKeyup(e, self);
-					}
-				},
+				on : on,
 				value : value
 			})]
 		});
@@ -171,84 +158,6 @@ UUI.FULL_TEXTAREA = CLASS({
 
 		self.getDom = getDom = function() {
 			return wrapper;
-		};
-
-		self.append = append = function(node) {
-			//REQUIRED: node
-
-			wrapper.append(node);
-		};
-
-		self.appendTo = appendTo = function(node) {
-			//REQUIRED: node
-
-			node.append(wrapper);
-
-			return self;
-		};
-
-		self.prepend = prepend = function(node) {
-			//REQUIRED: node
-
-			wrapper.prepend(node);
-		};
-
-		self.prependTo = prependTo = function(node) {
-			//REQUIRED: node
-
-			node.prepend(wrapper);
-
-			return self;
-		};
-
-		self.after = after = function(node) {
-			//REQUIRED: node
-
-			wrapper.after(node);
-		};
-
-		self.insertAfter = insertAfter = function(node) {
-			//REQUIRED: node
-
-			node.after(wrapper);
-
-			return self;
-		};
-
-		self.before = before = function(node) {
-			//REQUIRED: node
-
-			wrapper.before(node);
-		};
-
-		self.insertBefore = insertBefore = function(node) {
-			//REQUIRED: node
-
-			node.before(wrapper);
-
-			return self;
-		};
-
-		self.remove = remove = function() {
-			wrapper.remove();
-		};
-
-		self.removeAllChildren = removeAllChildren = function() {
-			wrapper.removeAllChildren();
-		};
-
-		self.getParent = getParent = function() {
-			return wrapper.getParent();
-		};
-
-		self.setParent = setParent = function(parent) {
-			//REQUIRED: parent
-
-			wrapper.setParent(parent);
-		};
-
-		self.getChildren = getChildren = function() {
-			return wrapper.getChildren();
 		};
 
 		self.getName = getName = function() {
@@ -296,17 +205,5 @@ UUI.FULL_TEXTAREA = CLASS({
 		if (textareaStyle !== undefined) {
 			addTextareaStyle(textareaStyle);
 		}
-
-		self.show = show = function() {
-			wrapper.show();
-		};
-
-		self.hide = hide = function() {
-			wrapper.hide();
-		};
-
-		self.checkIsShow = checkIsShow = function() {
-			return wrapper.checkIsShow();
-		};
 	}
 });

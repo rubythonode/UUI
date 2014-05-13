@@ -9,17 +9,17 @@ UUI.LIST = CLASS({
 
 	init : function(cls, inner, self, params) {'use strict';
 		//OPTIONAL: params
-		//OPTIONAL: params.children
 		//OPTIONAL: params.style
+		//OPTIONAL: params.children
 		//OPTIONAL: params.items
 		//OPTIONAL: params.isRequiringClearBoth
 
 		var
-		// children
-		children = params === undefined ? undefined : params.children,
-
 		// style
 		style = params === undefined ? undefined : params.style,
+
+		// children
+		children = params === undefined ? undefined : params.children,
 
 		// is requiring clear both
 		isRequiringClearBoth = params === undefined ? undefined : params.isRequiringClearBoth,
@@ -42,48 +42,6 @@ UUI.LIST = CLASS({
 		// get dom.
 		getDom,
 
-		// append.
-		append,
-
-		// append to.
-		appendTo,
-
-		// prepend.
-		prepend,
-
-		// prepend to.
-		prependTo,
-
-		// after.
-		after,
-
-		// insert after.
-		insertAfter,
-
-		// before.
-		before,
-
-		// insert before.
-		insertBefore,
-
-		// remove.
-		remove,
-
-		// remove all children.
-		removeAllChildren,
-
-		// get parent.
-		getParent,
-
-		// set parent.
-		setParent,
-
-		// get children.
-		getChildren,
-
-		// add style.
-		addStyle,
-
 		// add item.
 		addItem,
 
@@ -94,120 +52,20 @@ UUI.LIST = CLASS({
 		addRemoveItemHandler,
 
 		// remove all items.
-		removeAllItems,
-
-		// show.
-		show,
-
-		// hide.
-		hide,
-
-		// check is show.
-		checkIsShow;
+		removeAllItems;
 
 		if (items === undefined) {
 			items = {};
 		}
 
-		ul = UL();
+		ul = UL({
+			style : style,
+			children : children
+		});
 
 		self.getDom = getDom = function() {
 			return ul;
 		};
-
-		self.append = append = function(node) {
-			//REQUIRED: node
-
-			ul.append(node);
-		};
-
-		if (children !== undefined) {
-			EACH(children, function(child, i) {
-				append(child);
-			});
-		}
-
-		self.appendTo = appendTo = function(node) {
-			//REQUIRED: node
-
-			node.append(ul);
-
-			return self;
-		};
-
-		self.prepend = prepend = function(node) {
-			//REQUIRED: node
-
-			ul.prepend(node);
-		};
-
-		self.prependTo = prependTo = function(node) {
-			//REQUIRED: node
-
-			node.prepend(ul);
-
-			return self;
-		};
-
-		self.after = after = function(node) {
-			//REQUIRED: node
-
-			ul.after(node);
-		};
-
-		self.insertAfter = insertAfter = function(node) {
-			//REQUIRED: node
-
-			node.after(ul);
-
-			return self;
-		};
-
-		self.before = before = function(node) {
-			//REQUIRED: node
-
-			ul.before(node);
-		};
-
-		self.insertBefore = insertBefore = function(node) {
-			//REQUIRED: node
-
-			node.before(ul);
-
-			return self;
-		};
-
-		self.remove = remove = function() {
-			ul.remove();
-		};
-
-		self.removeAllChildren = removeAllChildren = function() {
-			ul.removeAllChildren();
-		};
-
-		self.getParent = getParent = function() {
-			return ul.getParent();
-		};
-
-		self.setParent = setParent = function(parent) {
-			//REQUIRED: parent
-
-			ul.setParent(parent);
-		};
-
-		self.getChildren = getChildren = function() {
-			return ul.getChildren();
-		};
-
-		self.addStyle = addStyle = function(style) {
-			//REQUIRED: style
-
-			ul.addStyle(style);
-		};
-
-		if (style !== undefined) {
-			addStyle(style);
-		}
 
 		self.addItem = addItem = function(params) {
 			//REQUIRED: params
@@ -331,18 +189,6 @@ UUI.LIST = CLASS({
 			items = {};
 			itemStack = [];
 			removeItemHandlers = {};
-		};
-
-		self.show = show = function() {
-			ul.show();
-		};
-
-		self.hide = hide = function() {
-			ul.hide();
-		};
-
-		self.checkIsShow = checkIsShow = function() {
-			return ul.checkIsShow();
 		};
 	}
 });

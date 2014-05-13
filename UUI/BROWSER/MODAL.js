@@ -11,7 +11,7 @@ UUI.MODAL = CLASS({
 		//OPTIONAL: params.xStyle
 		//OPTIONAL: params.xImg
 		//OPTIONAL: params.isCannotClose
-		//OPTIONAL: params.onClose
+		//OPTIONAL: params.on
 
 		var
 		// children
@@ -32,8 +32,8 @@ UUI.MODAL = CLASS({
 		// is cannot close
 		isCannotClose = params === undefined ? undefined : params.isCannotClose,
 
-		// on close
-		onClose = params === undefined ? undefined : params.onClose,
+		// on
+		on = params === undefined ? undefined : params.on,
 
 		// wrapper
 		wrapper,
@@ -105,18 +105,20 @@ UUI.MODAL = CLASS({
 					} : xStyle
 				}),
 				img : xImg,
-				onTap : function(e) {
-					close();
-				},
-				onMouseover : function() {
-					addWrapperStyle({
-						opacity : 0.8
-					});
-				},
-				onMouseout : function() {
-					addWrapperStyle({
-						opacity : 1
-					});
+				on : {
+					tap : function(e) {
+						close();
+					},
+					mouseover : function() {
+						addWrapperStyle({
+							opacity : 0.8
+						});
+					},
+					mouseout : function() {
+						addWrapperStyle({
+							opacity : 1
+						});
+					}
 				}
 			})]
 		}).appendTo(BODY);
@@ -160,7 +162,7 @@ UUI.MODAL = CLASS({
 			find(wrapper.getChildren());
 		});
 
-		wrapper.addAfterShowProc(moveToCenter);
+		wrapper.addShowHandler(moveToCenter);
 
 		resizeEvent = EVENT({
 			name : 'resize'
@@ -179,7 +181,7 @@ UUI.MODAL = CLASS({
 			}
 		});
 
-		wrapper.addAfterRemoveProc(function() {
+		wrapper.addRemoveHandler(function() {
 			resizeEvent.remove();
 			scrollEvent.remove();
 			escEvent.remove();
@@ -228,11 +230,11 @@ UUI.MODAL = CLASS({
 		};
 
 		self.removeAllChildren = removeAllChildren = function() {
-			wrapper.removeAllChildren();
+			content.removeAllChildren();
 		};
 
 		self.getChildren = getChildren = function() {
-			return wrapper.getChildren();
+			return content.getChildren();
 		};
 
 		self.addWrapperStyle = addWrapperStyle = function(style) {
@@ -259,8 +261,8 @@ UUI.MODAL = CLASS({
 
 		self.close = close = function() {
 
-			if (onClose !== undefined) {
-				if (onClose(self) !== false) {
+			if (on !== undefined && on.close !== undefined) {
+				if (on.close(self) !== false) {
 					remove();
 				}
 			} else {

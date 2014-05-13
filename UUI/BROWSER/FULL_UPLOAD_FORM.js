@@ -15,7 +15,7 @@ UUI.FULL_UPLOAD_FORM = CLASS({
 		//OPTIONAL: params.uploadingStyle
 		//OPTIONAL: params.box
 		//REQUIRED: params.afterUpload
-		//OPTIONAL: params.onChange
+		//OPTIONAL: params.on
 
 		var
 		// wrapper style
@@ -36,8 +36,8 @@ UUI.FULL_UPLOAD_FORM = CLASS({
 		// after upload
 		afterUpload = params.afterUpload,
 
-		// on change.
-		onChange = params.onChange,
+		// on
+		on = params.on,
 
 		// wrapper
 		wrapper,
@@ -57,54 +57,6 @@ UUI.FULL_UPLOAD_FORM = CLASS({
 		// get dom.
 		getDom,
 
-		// append.
-		append,
-
-		// append to.
-		appendTo,
-
-		// prepend.
-		prepend,
-
-		// prepend to.
-		prependTo,
-
-		// after.
-		after,
-
-		// insert after.
-		insertAfter,
-
-		// before.
-		before,
-
-		// insert before.
-		insertBefore,
-
-		// remove.
-		remove,
-
-		// remove all children.
-		removeAllChildren,
-
-		// get parent.
-		getParent,
-
-		// set parent.
-		setParent,
-
-		// get children.
-		getChildren,
-
-		// show.
-		show,
-
-		// hide.
-		hide,
-
-		// check is show.
-		checkIsShow,
-
 		// select.
 		select,
 
@@ -118,16 +70,16 @@ UUI.FULL_UPLOAD_FORM = CLASS({
 		addInputStyle,
 
 		// add uplading style.
-		addUploadingStyle,
+		addUploadingStyle;
 
-		// show.
-		show,
+		if (on !== undefined) {
 
-		// hide.
-		hide,
-
-		// check is show.
-		checkIsShow;
+			EACH(on, function(handler, name) {
+				on[name] = function(e) {
+					handler(e, self);
+				};
+			});
+		}
 
 		wrapper = DIV({
 			style : {
@@ -157,11 +109,7 @@ UUI.FULL_UPLOAD_FORM = CLASS({
 						color : '#000',
 						border : 'none'
 					},
-					onChange : function(e) {
-						if (onChange !== undefined) {
-							onChange(e, self);
-						}
-					}
+					on : on
 				}), INPUT({
 					type : 'submit',
 					style : {
@@ -241,96 +189,6 @@ UUI.FULL_UPLOAD_FORM = CLASS({
 			return wrapper;
 		};
 
-		self.append = append = function(node) {
-			//REQUIRED: node
-
-			wrapper.append(node);
-		};
-
-		self.appendTo = appendTo = function(node) {
-			//REQUIRED: node
-
-			node.append(wrapper);
-
-			return self;
-		};
-
-		self.prepend = prepend = function(node) {
-			//REQUIRED: node
-
-			wrapper.prepend(node);
-		};
-
-		self.prependTo = prependTo = function(node) {
-			//REQUIRED: node
-
-			node.prepend(wrapper);
-
-			return self;
-		};
-
-		self.after = after = function(node) {
-			//REQUIRED: node
-
-			wrapper.after(node);
-		};
-
-		self.insertAfter = insertAfter = function(node) {
-			//REQUIRED: node
-
-			node.after(wrapper);
-
-			return self;
-		};
-
-		self.before = before = function(node) {
-			//REQUIRED: node
-
-			wrapper.before(node);
-		};
-
-		self.insertBefore = insertBefore = function(node) {
-			//REQUIRED: node
-
-			node.before(wrapper);
-
-			return self;
-		};
-
-		self.remove = remove = function() {
-			wrapper.remove();
-		};
-
-		self.removeAllChildren = removeAllChildren = function() {
-			wrapper.removeAllChildren();
-		};
-
-		self.getParent = getParent = function() {
-			return wrapper.getParent();
-		};
-
-		self.setParent = setParent = function(parent) {
-			//REQUIRED: parent
-
-			wrapper.setParent(parent);
-		};
-
-		self.getChildren = getChildren = function() {
-			return wrapper.getChildren();
-		};
-
-		self.show = show = function() {
-			wrapper.show();
-		};
-
-		self.hide = hide = function() {
-			wrapper.hide();
-		};
-
-		self.checkIsShow = checkIsShow = function() {
-			return wrapper.checkIsShow();
-		};
-
 		self.select = select = function() {
 			input.select();
 		};
@@ -374,17 +232,5 @@ UUI.FULL_UPLOAD_FORM = CLASS({
 		if (uploadingStyle !== undefined) {
 			addUploadingStyle(uploadingStyle);
 		}
-
-		self.show = show = function() {
-			wrapper.show();
-		};
-
-		self.hide = hide = function() {
-			wrapper.hide();
-		};
-
-		self.checkIsShow = checkIsShow = function() {
-			return wrapper.checkIsShow();
-		};
 	}
 });

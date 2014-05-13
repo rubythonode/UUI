@@ -13,9 +13,7 @@ UUI.TEXT_BUTTON = CLASS({
 		//OPTIONAL: params.href
 		//OPTIONAL: params.target
 		//OPTIONAL: params.style
-		//OPTIONAL: params.onTap
-		//OPTIONAL: params.onMouseover
-		//OPTIONAL: params.onMouseout
+		//OPTIONAL: params.on
 
 		var
 		// title
@@ -30,14 +28,8 @@ UUI.TEXT_BUTTON = CLASS({
 		// style
 		style = params.style,
 
-		// on tap
-		onTap = params.onTap,
-
-		// on mouseover
-		onMouseover = params.onMouseover,
-
-		// on mouseout
-		onMouseout = params.onMouseout,
+		// on
+		on = params.on,
 
 		// a
 		a,
@@ -51,84 +43,31 @@ UUI.TEXT_BUTTON = CLASS({
 		// get dom.
 		getDom,
 
-		// append.
-		append,
-
-		// append to.
-		appendTo,
-
-		// prepend.
-		prepend,
-
-		// prepend to.
-		prependTo,
-
-		// after.
-		after,
-
-		// insert after.
-		insertAfter,
-
-		// before.
-		before,
-
-		// insert before.
-		insertBefore,
-
-		// remove.
-		remove,
-
-		// remove all children.
-		removeAllChildren,
-
-		// get parent.
-		getParent,
-
-		// set parent.
-		setParent,
-
-		// get children.
-		getChildren,
-
-		// add style.
-		addStyle,
-
-		// show.
-		show,
-
-		// hide.
-		hide,
-
-		// check is show.
-		checkIsShow,
-
 		// tap.
 		tap;
 
+		if (on !== undefined) {
+
+			EACH(on, function(handler, name) {
+				on[name] = function(e) {
+					handler(e, self);
+				};
+			});
+		}
+
 		a = A({
-			style : {
-				cursor : 'pointer',
-				textDecoration : 'none',
-				touchCallout : 'none',
-				userSelect : 'none'
-			},
+			style : COMBINE_DATA({
+				origin : {
+					cursor : 'pointer',
+					textDecoration : 'none',
+					touchCallout : 'none',
+					userSelect : 'none'
+				},
+				extend : style
+			}),
 			href : href,
 			target : target,
-			onTap : function(e) {
-				if (onTap !== undefined) {
-					onTap(e, self);
-				}
-			},
-			onMouseover : function(e) {
-				if (onMouseover !== undefined) {
-					onMouseover(e, self);
-				}
-			},
-			onMouseout : function(e) {
-				if (onMouseout !== undefined) {
-					onMouseout(e, self);
-				}
-			},
+			on : on,
 			children : [ span = SPAN({
 				children : [title === undefined ? (href === undefined ? '' : href) : title]
 			})]
@@ -141,106 +80,6 @@ UUI.TEXT_BUTTON = CLASS({
 
 		self.getDom = getDom = function() {
 			return a;
-		};
-
-		self.append = append = function(node) {
-			//REQUIRED: node
-
-			a.append(node);
-		};
-
-		self.appendTo = appendTo = function(node) {
-			//REQUIRED: node
-
-			node.append(a);
-
-			return self;
-		};
-
-		self.prepend = prepend = function(node) {
-			//REQUIRED: node
-
-			a.prepend(node);
-		};
-
-		self.prependTo = prependTo = function(node) {
-			//REQUIRED: node
-
-			node.prepend(a);
-
-			return self;
-		};
-
-		self.after = after = function(node) {
-			//REQUIRED: node
-
-			a.after(node);
-		};
-
-		self.insertAfter = insertAfter = function(node) {
-			//REQUIRED: node
-
-			node.after(a);
-
-			return self;
-		};
-
-		self.before = before = function(node) {
-			//REQUIRED: node
-
-			a.before(node);
-		};
-
-		self.insertBefore = insertBefore = function(node) {
-			//REQUIRED: node
-
-			node.before(a);
-
-			return self;
-		};
-
-		self.remove = remove = function() {
-			a.remove();
-		};
-
-		self.removeAllChildren = removeAllChildren = function() {
-			a.removeAllChildren();
-		};
-
-		self.getParent = getParent = function() {
-			return a.getParent();
-		};
-
-		self.setParent = setParent = function(parent) {
-			//REQUIRED: parent
-
-			a.setParent(parent);
-		};
-
-		self.getChildren = getChildren = function() {
-			return a.getChildren();
-		};
-
-		self.addStyle = addStyle = function(style) {
-			//REQUIRED: style
-
-			a.addStyle(style);
-		};
-
-		if (style !== undefined) {
-			addStyle(style);
-		}
-
-		self.show = show = function() {
-			a.show();
-		};
-
-		self.hide = hide = function() {
-			a.hide();
-		};
-
-		self.checkIsShow = checkIsShow = function() {
-			return a.checkIsShow();
 		};
 
 		self.tap = tap = function() {

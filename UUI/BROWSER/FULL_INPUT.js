@@ -15,9 +15,7 @@ UUI.FULL_INPUT = CLASS({
 		//OPTIONAL: params.value
 		//OPTIONAL: params.wrapperStyle
 		//OPTIONAL: params.inputStyle
-		//OPTIONAL: params.onChange
-		//OPTIONAL: params.onKeydown
-		//OPTIONAL: params.onKeyup
+		//OPTIONAL: params.on
 		//OPTIONAL: params.isHidePlaceholder
 
 		var
@@ -39,14 +37,8 @@ UUI.FULL_INPUT = CLASS({
 		// input style
 		inputStyle = params.inputStyle,
 
-		// on change.
-		onChange = params.onChange,
-
-		// on keydown.
-		onKeydown = params.onKeydown,
-
-		// on keyup.
-		onKeyup = params.onKeyup,
+		// on
+		on = params.on,
 
 		// is hide placeholder
 		isHidePlaceholder = params.isHidePlaceholder,
@@ -161,6 +153,15 @@ UUI.FULL_INPUT = CLASS({
 		// check is show.
 		checkIsShow;
 
+		if (on !== undefined) {
+
+			EACH(on, function(handler, name) {
+				on[name] = function(e) {
+					handler(e, self);
+				};
+			});
+		}
+
 		wrapper = DIV({
 			style : {
 				padding : 5,
@@ -199,30 +200,32 @@ UUI.FULL_INPUT = CLASS({
 					name : name,
 					type : type,
 					value : value,
-					onChange : function(e) {
+					on : {
+						change : function(e) {
 
-						replacePlaceholderButton();
-
-						if (onChange !== undefined) {
-							onChange(e, self);
-						}
-					},
-					onKeydown : function(e) {
-
-						keydownDelay = DELAY(function() {
 							replacePlaceholderButton();
-						});
 
-						if (onKeydown !== undefined) {
-							onKeydown(e, self);
-						}
-					},
-					onKeyup : function(e) {
+							if (on !== undefined && on.change !== undefined) {
+								on.change(e, self);
+							}
+						},
+						keydown : function(e) {
 
-						replacePlaceholderButton();
+							keydownDelay = DELAY(function() {
+								replacePlaceholderButton();
+							});
 
-						if (onKeyup !== undefined) {
-							onKeyup(e, self);
+							if (on !== undefined && on.keydown !== undefined) {
+								on.keydown(e, self);
+							}
+						},
+						keyup : function(e) {
+
+							replacePlaceholderButton();
+
+							if (on !== undefined && on.keyup !== undefined) {
+								on.keyup(e, self);
+							}
 						}
 					}
 				})]
@@ -295,7 +298,7 @@ UUI.FULL_INPUT = CLASS({
 			}
 		});
 
-		wrapper.addAfterRemoveProc(function() {
+		wrapper.addRemoveHandler(function() {
 			if (keydownDelay !== undefined) {
 				keydownDelay.remove();
 			}
@@ -310,84 +313,6 @@ UUI.FULL_INPUT = CLASS({
 
 		self.getDom = getDom = function() {
 			return wrapper;
-		};
-
-		self.append = append = function(node) {
-			//REQUIRED: node
-
-			wrapper.append(node);
-		};
-
-		self.appendTo = appendTo = function(node) {
-			//REQUIRED: node
-
-			node.append(wrapper);
-
-			return self;
-		};
-
-		self.prepend = prepend = function(node) {
-			//REQUIRED: node
-
-			wrapper.prepend(node);
-		};
-
-		self.prependTo = prependTo = function(node) {
-			//REQUIRED: node
-
-			node.prepend(wrapper);
-
-			return self;
-		};
-
-		self.after = after = function(node) {
-			//REQUIRED: node
-
-			wrapper.after(node);
-		};
-
-		self.insertAfter = insertAfter = function(node) {
-			//REQUIRED: node
-
-			node.after(wrapper);
-
-			return self;
-		};
-
-		self.before = before = function(node) {
-			//REQUIRED: node
-
-			wrapper.before(node);
-		};
-
-		self.insertBefore = insertBefore = function(node) {
-			//REQUIRED: node
-
-			node.before(wrapper);
-
-			return self;
-		};
-
-		self.remove = remove = function() {
-			wrapper.remove();
-		};
-
-		self.removeAllChildren = removeAllChildren = function() {
-			wrapper.removeAllChildren();
-		};
-
-		self.getParent = getParent = function() {
-			return wrapper.getParent();
-		};
-
-		self.setParent = setParent = function(parent) {
-			//REQUIRED: parent
-
-			wrapper.setParent(parent);
-		};
-
-		self.getChildren = getChildren = function() {
-			return wrapper.getChildren();
 		};
 
 		self.getName = getName = function() {
@@ -437,17 +362,5 @@ UUI.FULL_INPUT = CLASS({
 		if (inputStyle !== undefined) {
 			addInputStyle(inputStyle);
 		}
-
-		self.show = show = function() {
-			wrapper.show();
-		};
-
-		self.hide = hide = function() {
-			wrapper.hide();
-		};
-
-		self.checkIsShow = checkIsShow = function() {
-			return wrapper.checkIsShow();
-		};
 	}
 });
