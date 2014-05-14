@@ -37,7 +37,7 @@ UUI.BUTTON_H = CLASS({
 		style = params.style,
 
 		// on
-		on,
+		on = params.on,
 
 		// a
 		a,
