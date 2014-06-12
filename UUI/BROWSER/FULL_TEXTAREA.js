@@ -47,45 +47,6 @@ UUI.FULL_TEXTAREA = CLASS({
 		// get dom.
 		getDom,
 
-		// append.
-		append,
-
-		// append to.
-		appendTo,
-
-		// prepend.
-		prepend,
-
-		// prepend to.
-		prependTo,
-
-		// after.
-		after,
-
-		// insert after.
-		insertAfter,
-
-		// before.
-		before,
-
-		// insert before.
-		insertBefore,
-
-		// remove.
-		remove,
-
-		// remove all children.
-		removeAllChildren,
-
-		// get parent.
-		getParent,
-
-		// set parent.
-		setParent,
-
-		// get children.
-		getChildren,
-
 		// get name.
 		getName,
 
@@ -135,7 +96,7 @@ UUI.FULL_TEXTAREA = CLASS({
 				position : 'relative',
 				height : 100
 			},
-			children : [ textarea = TEXTAREA({
+			c : [ textarea = TEXTAREA({
 				style : {
 					width : '100%',
 					height : '100%',

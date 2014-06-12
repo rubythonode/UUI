@@ -11,7 +11,7 @@ UUI.VALID_FORM = CLASS({
 		//OPTIONAL: params
 		//OPTIONAL: params.errorMsgs
 		//OPTIONAL: params.on
-		//OPTIONAL: params.children
+		//OPTIONAL: params.c
 		//OPTIONAL: params.style
 		//OPTIONAL: params.errorMsgStyle
 
@@ -23,7 +23,7 @@ UUI.VALID_FORM = CLASS({
 		on = params === undefined ? undefined : params.on,
 
 		// children
-		children = params === undefined ? undefined : params.children,
+		children = params === undefined ? undefined : (params.c === undefined || CHECK_IS_ARRAY(params.c) === true ? params.c : [params.c]),
 
 		// style
 		style = params === undefined ? undefined : params.style,
@@ -66,7 +66,7 @@ UUI.VALID_FORM = CLASS({
 
 		form = FORM({
 			style : style,
-			children : children,
+			c : children,
 			on : on
 		});
 
@@ -137,7 +137,7 @@ UUI.VALID_FORM = CLASS({
 
 							(child.getParent().getParent().isValidWrapper === true ? child.getParent().getParent() : (child.getParent().isValidWrapper === true ? child.getParent() : child)).after( errorMsgP = P({
 								style : errorMsgStyle,
-								children : [errorMsg]
+								c : [errorMsg]
 							}));
 
 							REMOVE_AT({

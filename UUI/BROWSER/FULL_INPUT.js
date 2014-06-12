@@ -81,45 +81,6 @@ UUI.FULL_INPUT = CLASS({
 		// get dom.
 		getDom,
 
-		// append.
-		append,
-
-		// append to.
-		appendTo,
-
-		// prepend.
-		prepend,
-
-		// prepend to.
-		prependTo,
-
-		// after.
-		after,
-
-		// insert after.
-		insertAfter,
-
-		// before.
-		before,
-
-		// insert before.
-		insertBefore,
-
-		// remove.
-		remove,
-
-		// remove all children.
-		removeAllChildren,
-
-		// get parent.
-		getParent,
-
-		// set parent.
-		setParent,
-
-		// get children.
-		getChildren,
-
 		// get name.
 		getName,
 
@@ -167,18 +128,18 @@ UUI.FULL_INPUT = CLASS({
 				padding : 5,
 				backgroundColor : '#FFF'
 			},
-			children : [DIV({
+			c : [DIV({
 				style : {
 					position : 'relative'
 				},
-				children : [
+				c : [
 
 				// span
 				SPAN({
 					style : {
 						visibility : 'hidden'
 					},
-					children : ['.']
+					c : ['.']
 				}),
 
 				// placeholder

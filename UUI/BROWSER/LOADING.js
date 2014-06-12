@@ -44,8 +44,8 @@ UUI.LOADING = CLASS({
 		// remove.
 		remove,
 
-		// remove all children.
-		removeAllChildren,
+		// empty.
+		empty,
 
 		// get children.
 		getChildren,
@@ -65,11 +65,11 @@ UUI.LOADING = CLASS({
 			}),
 			contentStyle : contentStyle,
 			isCannotClose : true,
-			children : [indicator === undefined ? '' : indicator, P({
+			c : [indicator === undefined ? '' : indicator, P({
 				style : indicator === undefined ? {} : {
 					marginTop : 10
 				},
-				children : [msg]
+				c : [msg]
 			})]
 		});
 		
@@ -105,8 +105,8 @@ UUI.LOADING = CLASS({
 			modal.remove();
 		};
 
-		self.removeAllChildren = removeAllChildren = function() {
-			modal.removeAllChildren();
+		self.empty = empty = function() {
+			modal.empty();
 		};
 
 		self.getChildren = getChildren = function() {

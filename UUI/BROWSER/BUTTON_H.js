@@ -83,11 +83,11 @@ UUI.BUTTON_H = CLASS({
 			href : href,
 			target : target,
 			on : on,
-			children : [ titleDom = DIV({
+			c : [ titleDom = DIV({
 				style : {
 					flt : 'left'
 				},
-				children : [title === undefined ? '' : title]
+				c : [title === undefined ? '' : title]
 			}), CLEAR_BOTH()]
 		});
 
@@ -118,7 +118,7 @@ UUI.BUTTON_H = CLASS({
 		}
 
 		self.setTitle = setTitle = function(title) {
-			titleDom.removeAllChildren();
+			titleDom.empty();
 			titleDom.append(title);
 		};
 

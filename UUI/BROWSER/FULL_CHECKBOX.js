@@ -12,7 +12,6 @@ UUI.FULL_CHECKBOX = CLASS({
 		//REQUIRED: params.name
 		//REQUIRED: params.label
 		//OPTIONAL: params.value
-		//OPTIONAL: params.children
 		//OPTIONAL: params.wrapperStyle
 		//OPTIONAL: params.inputStyle
 		//OPTIONAL: params.on
@@ -26,9 +25,6 @@ UUI.FULL_CHECKBOX = CLASS({
 
 		// value
 		value = params.value,
-
-		// children
-		children = params.children,
 
 		// wrapper style
 		wrapperStyle = params.wrapperStyle,
@@ -78,17 +74,14 @@ UUI.FULL_CHECKBOX = CLASS({
 		// remove.
 		remove,
 
-		// remove all children.
-		removeAllChildren,
+		// empty.
+		empty,
 
 		// get parent.
 		getParent,
 
 		// set parent.
 		setParent,
-
-		// get children.
-		getChildren,
 
 		// get name.
 		getName,
@@ -139,7 +132,7 @@ UUI.FULL_CHECKBOX = CLASS({
 					e.stop();
 				}
 			},
-			children : [ input = INPUT({
+			c : [ input = INPUT({
 				style : {
 					flt : 'left',
 					marginRight : 5
@@ -160,7 +153,7 @@ UUI.FULL_CHECKBOX = CLASS({
 					flt : 'left',
 					cursor : 'pointer'
 				},
-				children : [label]
+				c : [label]
 			}), CLEAR_BOTH()]
 		});
 

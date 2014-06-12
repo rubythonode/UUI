@@ -83,7 +83,7 @@ UUI.FULL_SELECT = CLASS({
 				backgroundColor : '#FFF',
 				position : 'relative'
 			},
-			children : [ _select = SELECT({
+			c : [ _select = SELECT({
 				style : {
 					width : '100%',
 					border : 'none'

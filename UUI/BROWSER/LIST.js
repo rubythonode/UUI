@@ -10,7 +10,7 @@ UUI.LIST = CLASS({
 	init : function(cls, inner, self, params) {'use strict';
 		//OPTIONAL: params
 		//OPTIONAL: params.style
-		//OPTIONAL: params.children
+		//OPTIONAL: params.c
 		//OPTIONAL: params.items
 		//OPTIONAL: params.isRequiringClearBoth
 
@@ -19,7 +19,7 @@ UUI.LIST = CLASS({
 		style = params === undefined ? undefined : params.style,
 
 		// children
-		children = params === undefined ? undefined : params.children,
+		children = params === undefined ? undefined : params.c,
 
 		// is requiring clear both
 		isRequiringClearBoth = params === undefined ? undefined : params.isRequiringClearBoth,
@@ -60,7 +60,7 @@ UUI.LIST = CLASS({
 
 		ul = UL({
 			style : style,
-			children : children
+			c : children
 		});
 
 		self.getDom = getDom = function() {

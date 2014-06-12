@@ -68,13 +68,13 @@ UUI.TEXT_BUTTON = CLASS({
 			href : href,
 			target : target,
 			on : on,
-			children : [ span = SPAN({
-				children : [title === undefined ? (href === undefined ? '' : href) : title]
+			c : [ span = SPAN({
+				c : [title === undefined ? (href === undefined ? '' : href) : title]
 			})]
 		});
 
 		self.setTitle = setTitle = function(title) {
-			span.removeAllChildren();
+			span.empty();
 			span.append(title);
 		};
 

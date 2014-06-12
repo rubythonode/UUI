@@ -9,13 +9,13 @@ UUI.V_CENTER = CLASS({
 
 	init : function(cls, inner, self, params) {'use strict';
 		//OPTIONAL: params
-		//OPTIONAL: params.children
+		//OPTIONAL: params.c
 		//OPTIONAL: params.wrapperStyle
 		//OPTIONAL: params.contentStyle
 
 		var
 		// children
-		children = params === undefined ? undefined : params.children,
+		children = params === undefined ? undefined : (params.c === undefined || CHECK_IS_ARRAY(params.c) === true ? params.c : [params.c]),
 
 		// wrapper style
 		wrapperStyle = params === undefined ? undefined : params.wrapperStyle,
@@ -59,8 +59,8 @@ UUI.V_CENTER = CLASS({
 		// remove.
 		remove,
 
-		// remove all children.
-		removeAllChildren,
+		// empty.
+		empty,
 
 		// get parent.
 		getParent,
@@ -92,12 +92,12 @@ UUI.V_CENTER = CLASS({
 				margin : 0,
 				padding : 0
 			},
-			children : [TR({
+			c : [TR({
 				style : {
 					margin : 0,
 					padding : 0
 				},
-				children : [ content = TD({
+				c : [ content = TD({
 					style : {
 						margin : 0,
 						padding : 0
@@ -128,8 +128,8 @@ UUI.V_CENTER = CLASS({
 			content.prepend(node);
 		};
 
-		self.removeAllChildren = removeAllChildren = function() {
-			content.removeAllChildren();
+		self.empty = empty = function() {
+			content.empty();
 		};
 
 		self.getChildren = getChildren = function() {

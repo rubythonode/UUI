@@ -10,7 +10,7 @@ UUI.TABLE = CLASS({
 	init : function(cls, inner, self, params) {'use strict';
 		//OPTIONAL: params
 		//OPTIONAL: params.style
-		//OPTIONAL: params.children
+		//OPTIONAL: params.c
 		//OPTIONAL: params.trs
 
 		var
@@ -18,7 +18,7 @@ UUI.TABLE = CLASS({
 		style = params === undefined ? undefined : params.style,
 
 		// children
-		children = params === undefined ? undefined : params.children,
+		children = params === undefined ? undefined : (params.c === undefined || CHECK_IS_ARRAY(params.c) === true ? params.c : [params.c]),
 
 		// trs
 		trs = params === undefined ? undefined : params.trs,

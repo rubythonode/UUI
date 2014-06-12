@@ -85,7 +85,7 @@ UUI.BUTTON = CLASS({
 
 		if (title !== undefined) {
 			a.prepend( titleDom = DIV({
-				children : [title === undefined ? '' : title]
+				c : [title === undefined ? '' : title]
 			}));
 		}
 
@@ -94,12 +94,12 @@ UUI.BUTTON = CLASS({
 				style : {
 					marginBottom : title !== undefined ? spacing : 0
 				},
-				children : [img]
+				c : [img]
 			}));
 		}
 
 		self.setTitle = setTitle = function(title) {
-			titleDom.removeAllChildren();
+			titleDom.empty();
 			titleDom.append(title);
 		};
 

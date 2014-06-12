@@ -87,7 +87,7 @@ UUI.FULL_UPLOAD_FORM = CLASS({
 				background : '#FFF',
 				position : 'relative'
 			},
-			children : [ iframe = IFRAME({
+			c : [ iframe = IFRAME({
 				style : {
 					display : 'none'
 				},
@@ -100,7 +100,7 @@ UUI.FULL_UPLOAD_FORM = CLASS({
 				style : {
 					padding : 5
 				},
-				children : [ input = INPUT({
+				c : [ input = INPUT({
 					type : 'file',
 					isMultiple : true,
 					style : {
@@ -138,7 +138,7 @@ UUI.FULL_UPLOAD_FORM = CLASS({
 					textAlign : 'center',
 					borderRadius : 10
 				},
-				children : ['Uploading...']
+				c : ['Uploading...']
 			})]
 		});
 

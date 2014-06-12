@@ -48,8 +48,8 @@ UUI.NOTICE = CLASS({
 		// remove.
 		remove,
 
-		// remove all children.
-		removeAllChildren,
+		// empty.
+		empty,
 
 		// get children.
 		getChildren,
@@ -70,7 +70,7 @@ UUI.NOTICE = CLASS({
 			contentStyle : contentStyle,
 			isCannotClose : true,
 			on : on,
-			children : [msg]
+			c : [msg]
 		});
 
 		self.getDom = getDom = function() {
@@ -105,8 +105,8 @@ UUI.NOTICE = CLASS({
 			modal.remove();
 		};
 
-		self.removeAllChildren = removeAllChildren = function() {
-			modal.removeAllChildren();
+		self.empty = empty = function() {
+			modal.empty();
 		};
 
 		self.getChildren = getChildren = function() {

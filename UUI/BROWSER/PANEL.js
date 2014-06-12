@@ -9,13 +9,13 @@ UUI.PANEL = CLASS({
 
 	init : function(cls, inner, self, params) {'use strict';
 		//OPTIONAL: params
-		//OPTIONAL: params.children
+		//OPTIONAL: params.c
 		//OPTIONAL: params.wrapperStyle
 		//OPTIONAL: params.contentStyle
 
 		var
 		// children
-		children = params === undefined ? undefined : params.children,
+		children = params === undefined ? undefined : (params.c === undefined || CHECK_IS_ARRAY(params.c) === true ? params.c : [params.c]),
 
 		// wrapper style
 		wrapperStyle = params === undefined ? undefined : params.wrapperStyle,
@@ -38,8 +38,8 @@ UUI.PANEL = CLASS({
 		// prepend.
 		prepend,
 
-		// remove all children.
-		removeAllChildren,
+		// empty.
+		empty,
 
 		// get children.
 		getChildren,
@@ -51,7 +51,7 @@ UUI.PANEL = CLASS({
 		addContentStyle;
 
 		wrapper = DIV({
-			children : [ content = DIV()]
+			c : [ content = DIV()]
 		});
 
 		self.getDom = getDom = function() {
@@ -76,8 +76,8 @@ UUI.PANEL = CLASS({
 			content.prepend(node);
 		};
 
-		self.removeAllChildren = removeAllChildren = function() {
-			content.removeAllChildren();
+		self.empty = empty = function() {
+			content.empty();
 		};
 
 		self.getChildren = getChildren = function() {
