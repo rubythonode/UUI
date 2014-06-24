@@ -1,5 +1,78 @@
 VERSIONS
 ========
+1.3.8 (2014. 6. 24)
+- OOP 개선 (OOP-EXAMPLE 참고)
+- 통신 버그 개선
+- 에러 객체가 없을 때는 로그 표시 제한
+- MODEL 설정에서 더 이상 propertyNamesForNewEvent 필요 없음
+- create config에 데이터를 초기화하는 initData 기능 추가
+
+1.3.7.2 (2014. 6. 20)
+- MAIN(m, workerData, funcs)로 멀티코어 처리 가능 (funcs에는 다른 프로세스와 통신할 수 있는 on과 broadcast가 존재)
+- 버그 개선
+- 오류 발생시 로그 출력
+- SERVER_CONFIG -> NODE_CONFIG로 변경
+- DB.get 및 MODEL.get에 isRandom : true 로 random한 값을 가져올 수 있음
+
+1.3.6 (2014. 6. 12)
+- MODEL.getData, MODEL.findDat를 MODEL.get으로 통합
+- MODEL.updateData -> MODEL.update, MODEL.removeData -> MODEL.remove, MODEL.findDataSet -> MODEL.find, MODEL.countDataSet -> MODEL.count로 변경
+- MODEL.getDataWatching -> MODEL.getWatching, MODEL.findDataSetWatching -> MODEL.findWatching으로 변경
+- DOM.children -> DOM.c, DOM.removeAllChildren -> DOM.empty로 변경
+
+1.3.5 (2014. 5. 30)
+- 멀티코어 지원
+- findDataSet에서 sort를 지정하지 않으면 기본적으로 createTime 순으로 정렬되게 변경
+- DB.getData, DB.findDat를 DB.get으로 통합
+- DB.updateData -> DB.update, DB.removeData -> DB.remove, DB.findDataSet -> DB.find, DB.countDataSet -> DB.count로 변경
+
+1.3.4 (2014. 5. 19)
+- 데이터베이스에 데이터 저장 시 __RANDOM_KEY 자동 생성
+
+1.3.3 (2014. 5. 13)
+- UPPERCASE.JS 1.4 (https://bitbucket.org/uppercaseio/uppercase.js) 포함
+- Windows 8 기반 태블릿 터치 대응
+- CSS position: fixed를 지원하지 않는 브라우저에서는 시뮬레이션
+- IE에서의 DOM.getLeft, DOM.getTop 버그 개선
+- DOM.addAfterShowProc/DOM.addAfterRemoveProc를 DOM.addShowHandler/DOM.addRemoveHandler로 변경
+- INFO.checkIsSupportFixed 제거, fixed 기능을 제공하지 않는 브라우저는 에뮬레이트
+- INFO.checkIsSupportCanvas 제거, canvas를 제공하지 않는 IE8, 7, 6 버젼에서는 FlashCanvas로 대체
+- UTIL/CALENDAR에서 파라미터가 없으면 현재 시각을 기준으로 작동되도록 변경
+- BROWSER-UTIL/ANIMATE 기본 애니메이션 작동 시간 1초에서 0.5초로 변경
+
+1.3.2
+- EVENT에 double tap 이벤트 추가
+- IE11 지원
+
+1.3.1 (2014. 4. 20)
+- 안드로이드 4.4 미만 버젼의 기본 웹 브라우저에서 통신 연결 오류 해결
+- 멀티코어 지원 일시적으로 중단
+- CONFIG.flashPolicyServerPort 기본 값 CONFIG.port + 1955로 설정
+- INFO.getBrowserInfo, bowser( https://github.com/ded/bowser )에 의존하도록 변경
+
+1.3 (2014. 4. 17)
+- UPPERCASE에서 UPPERCASE.IO로 개명
+- LOOP를 다시 COMMON으로 회귀, 성능 개선
+- IE 5.5 ~ 8에서 backgroundSize cover/contain 스타일을 적용하는 기능 추가
+- BROWSER/R_URI, BROWSER/RF_URI 제거
+- COMMON/INTEGER, COMMON/REAL 추가
+- UPPERCASE 부팅 후 명령어를 입력받을 수 있게 REPL(Read-Eval-Print-Loop)기능 추가(SERVER_CONFIG.isNotUsingREPL을 true로 두어 끌 수 있음)
+- ANIMATE가 끝나면 최종 스타일이 DOM에 반영되도록 변경
+- ANIMATE 기본 1초로 설정
+- R/RF에 callback을 넘기면 AJAX처리 후 반환
+- 폼에 입력중이면 새로고침 시 확인하여 새로고침을 방지할 수 있는 기능
+- VIEW의 실제 경로를 구하는 HREF 기능 추가
+- BOX 이름에 점(.)이 들어가도 인식되도록 개선
+- REFRESH 기능 추가
+- 실시간 처리 Redis 연동
+- 멀티코어 CPU 지원으로 인한 성능 개선
+- iOS/Mac Safari에서 캐시되지 않는 버그 해결
+- 기본 BOX 폴더 내에 ERROR.html 파일을 만들면 서버에서 오류가 발생하거나 없는 리소스일 경우 해당 페이지가 출력되는 기능 추가
+- 기본 BOX 폴더 내에 AUTHED.html 파일을 만들면 __AUTH로 인증 완료시 해당 페이지가 출력되는 기능 추가
+- 기본 BOX 폴더 내에 favicon.ico 파일을 만들면 해당 파일이 파비콘으로 등록되는 기능 추가
+- Flash Policy File을 제공하는 Server의 포트를 지정하는 CONFIG.flashPolicyServerPort 설정 추가
+- isNotUsingREPL -> isUsingREPL로 변경
+
 1.2.13.1 (2014. 3. 20)
 - SERVER_CONFIG.isDBLogMode가 true일 때 DB Log 출력하도록 변경
 
@@ -104,31 +177,3 @@ VERSIONS
 
 1.0 (2013. 3)
 - BTNcafe의 가상현실 SNS인 Bigtown의 소스코드로부터 Full-stack Framework 부분이 분리됨
-
-ROAD MAP
---------
-1.3 (2014년 전반기 예상)
-- UPPERCASE에서 UPPERCASE.IO로 개명
-- fxcanvas -> FlashCanvas로 변경
-- LOOP를 다시 COMMON으로 회귀, 성능 개선
-- IE 5.5 ~ 8에서 backgroundSize cover/contain 스타일을 적용하는 기능 추가
-- BROWSER/R_URI, BROWSER/RF_URI 제거
-- COMMON/INTEGER, COMMON/REAL 추가
-- UPPERCASE 부팅 후 명령어를 입력받을 수 있게 REPL(Read-Eval-Print-Loop)기능 추가(SERVER_CONFIG.isNotUsingREPL을 true로 두어 끌 수 있음)
-- ANIMATE가 끝나면 최종 스타일이 DOM에 반영되도록 변경
-- ANIMATE 기본 1초로 설정
-- R/RF에 callback을 넘기면 AJAX처리 후 반환
-- 폼에 입력중이면 새로고침 시 확인하여 새로고침을 방지할 수 있는 기능
-- VIEW의 실제 경로를 구하는 HREF 기능 추가
-- REFRESH 기능 추가
-
-(todo)
-- FlashPolicyFileServer 포트 변경 가능
-- 소스코드 재정비
-- 소켓, DB 보안 (서버측 인증 처리 -> CHECK_ROLE 추가)
-- 클러스터링 지원
-- 실시간 처리 Redis 연동 가능
-- 분산 서버 구성 (DB, 웹 서버 모두 분산 가능 -> 수평적 확장 가능)
-- Redis를 이용한 파일 캐시, 분산 파일 서버
-- API화 가능하게 변경
-- R/RF 다운로드 카운터

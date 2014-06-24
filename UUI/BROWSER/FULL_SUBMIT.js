@@ -7,7 +7,7 @@ UUI.FULL_SUBMIT = CLASS({
 		return NODE;
 	},
 
-	init : function(cls, inner, self, params) {'use strict';
+	init : function(inner, self, params) {'use strict';
 		//OPTIONAL: params
 		//OPTIONAL: params.style
 		//OPTIONAL: params.value

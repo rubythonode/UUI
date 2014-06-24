@@ -1,11 +1,11 @@
-UPPERCASE LICENSE
+UPPERCASE.IO LICENSE
 =================
-UPPERCASE는 BTNcafe가 개발한 소프트웨어 솔루션으로서, UPPERCASE 1.2.7 버젼과 그 이후 버젼은 다음과 같은 라이센스를 가집니다.
+UPPERCASE.IO는 BTNcafe가 개발한 소프트웨어 솔루션으로서, UPPERCASE.IO(구 UPPERCASE) 1.2.7 버젼과 그 이후 버젼은 다음과 같은 라이센스를 가집니다.
 
-- UPPERCASE는 자유롭게 복제, 배포가 가능합니다. 그러나 수정 후 재배포는 불가능합니다.
-- UPPERCASE의 폴더 내부에 위치한 LICENSE.md 파일은 반드시 첨부해야합니다.
-- UPPERCASE의 소스 코드는 저작권 및 특허권에 의해 보호받고 있습니다.
-- UPPERCASE의 이름은 상표권에 의해 보호받고 있습니다.
+- UPPERCASE.IO는 자유롭게 복제, 배포가 가능합니다. 그러나 수정 후 재배포는 불가능합니다.
+- UPPERCASE.IO의 폴더 내부에 위치한 LICENSE.md 파일은 반드시 첨부해야합니다.
+- UPPERCASE.IO의 소스 코드는 저작권 및 특허권에 의해 보호받고 있습니다.
+- UPPERCASE.IO의 이름은 상표권에 의해 보호받고 있습니다.
 
 Copyright ⓒ 2014 BTNcafe & Hanul.
 

@@ -7,7 +7,7 @@ UUI.V_CENTER = CLASS({
 		return NODE;
 	},
 
-	init : function(cls, inner, self, params) {'use strict';
+	init : function(inner, self, params) {'use strict';
 		//OPTIONAL: params
 		//OPTIONAL: params.c
 		//OPTIONAL: params.wrapperStyle

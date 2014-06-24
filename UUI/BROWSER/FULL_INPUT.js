@@ -7,7 +7,7 @@ UUI.FULL_INPUT = CLASS({
 		return NODE;
 	},
 
-	init : function(cls, inner, self, params) {'use strict';
+	init : function(inner, self, params) {'use strict';
 		//REQUIRED: params
 		//REQUIRED: params.name
 		//OPTIONAL: params.type
@@ -164,7 +164,9 @@ UUI.FULL_INPUT = CLASS({
 					on : {
 						change : function(e) {
 
-							replacePlaceholderButton();
+							if (replacePlaceholderButton !== undefined) {
+								replacePlaceholderButton();
+							}
 
 							if (on !== undefined && on.change !== undefined) {
 								on.change(e, self);

@@ -1,1 +1,0 @@
-OVERRIDE(ANIMATE,function(){"use strict";global.ANIMATE=ANIMATE=METHOD({run:function(n,t,i){var o=t.duration;dom.addStyle(keyframes.getFinalStyle()),void 0!==i&&void 0!==o&&DELAY(function(){i()})}})});

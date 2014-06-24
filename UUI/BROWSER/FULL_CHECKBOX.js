@@ -7,7 +7,7 @@ UUI.FULL_CHECKBOX = CLASS({
 		return NODE;
 	},
 
-	init : function(cls, inner, self, params) {'use strict';
+	init : function(inner, self, params) {'use strict';
 		//REQUIRED: params
 		//REQUIRED: params.name
 		//REQUIRED: params.label
